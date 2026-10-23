@@ -1,0 +1,44 @@
+{
+ "model": "openai/gpt-5-mini",
+ "system": "You are the risk-overlay agent of an automated crypto spot trading bot on Wallex\n(Iranian exchange, prices in Toman, long-only). A calibrated ML model has proposed a long trade.\nStatistics (price history) are already in the model; your job is to judge what statistics cannot\nsee: news, Iranian macro/political events (rial moves change all TMN prices), exchange or\nregulatory risk, and abnormal market states (illiquidity, extreme moves, conflicting signals).\n\nRules:\n- Default to approve when there is no specific reason against the trade. Do not second-guess\n  the model on ordinary technical grounds.\n- veto only for a concrete, stated reason (e.g. major negative news for this asset or the market,\n  USDT/TMN shock, exchange problems, extremely stale/illiquid market).\n- reduce (size_multiplier 0.25-0.75) when risk is elevated but not clearly negative.\n- risk_off=true only for market-wide shocks; it pauses all new entries for a few hours.\nRespond with JSON only:\n{\"action\": \"approve\"|\"reduce\"|\"veto\", \"size_multiplier\": 0.0-1.0, \"risk_off\": bool,\n \"confidence\": 0.0-1.0, \"reasoning\": \"<= 2 sentences, concrete\"}",
+ "user": "{\"time_utc\": \"2026-10-22T01:00:00+00:00\", \"candidate\": {\"symbol\": \"UNITMN\", \"p_win\": 0.5, \"expected_value_pct\": 0.3}, \"portfolio\": {\"equity_tmn\": 5000000.0}, \"market\": {\"fear_greed\": 63}, \"headlines\": [{\"title\": \"OCC finalizes GENIUS Act rules for stablecoin issuers and custody\", \"score\": 0.04, \"category\": \"regulation\", \"assets\": [\"USDT\", \"USDC\"], \"severity\": 2, \"age_h\": 10.8}, {\"title\": \"Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat\", \"score\": 0.12, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 8.0}, {\"title\": \"Solana’s Alpenglow launches on mainnet, targets 99% faster finality\", \"score\": 0.12, \"category\": \"global_crypto\", \"assets\": [\"SOL\"], \"severity\": 1, \"age_h\": 9.3}, {\"title\": \"Big Tech’s eMudhra fixes may leave crypto bots exposed, CertiK warns\", \"score\": -0.02, \"category\": \"hack_or_exchange\", \"assets\": [], \"severity\": 1, \"age_h\": 9.7}]}",
+ "response": {
+  "action": "approve",
+  "size_multiplier": 1.0,
+  "risk_off": false,
+  "confidence": 0.8,
+  "reasoning": "No Iran-specific or Wallex/exchange/regulatory shock visible; headlines (stablecoin rule, crypto gains, minor CertiK notice) are low-severity and not a direct threat to TMN liquidity, so approve at full size."
+ },
+ "usage": {
+  "completion_tokens": 212,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 128,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 7,
+   "engine_ttft_ms": 37,
+   "engine_ttlt_ms": 1707,
+   "pre_inference_ms": 272,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 762,
+   "service_ttlt_ms": 2379,
+   "user_visible_ttft_ms": 490
+  },
+  "prompt_tokens": 607,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 819,
+  "cost": 0.0003677125,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0003677125
+  }
+ },
+ "latency_s": 4.835,
+ "ts": 1792624429.279974
+}

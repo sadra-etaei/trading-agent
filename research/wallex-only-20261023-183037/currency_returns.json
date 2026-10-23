@@ -1,0 +1,39 @@
+{
+  "quotes": [
+    {
+      "requested": "2026-07-01 00:00:00+00:00",
+      "last_candle_open": "2026-06-30 23:59:00+00:00",
+      "tmn_per_usdt": 173000.0,
+      "volume": 10.0
+    },
+    {
+      "requested": "2026-10-23 17:00:00+00:00",
+      "last_candle_open": "2026-10-23 16:59:00+00:00",
+      "tmn_per_usdt": 268986.0,
+      "volume": 655.2
+    }
+  ],
+  "usdt_tmn_change_pct": 55.483236994219645,
+  "candidates": [
+    {
+      "candidate": "local",
+      "toman_return_pct": 5.270977820027434,
+      "usdt_return_pct": -32.29432326268004
+    },
+    {
+      "candidate": "local_premium",
+      "toman_return_pct": 7.255722935278031,
+      "usdt_return_pct": -31.017822236833513
+    },
+    {
+      "candidate": "disconnected",
+      "toman_return_pct": -5.69144906724377,
+      "usdt_return_pct": -39.34487552747419
+    },
+    {
+      "candidate": "full_reference",
+      "toman_return_pct": 23.77194097909978,
+      "usdt_return_pct": -20.395315037272333
+    }
+  ]
+}

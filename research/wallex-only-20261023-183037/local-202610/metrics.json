@@ -1,0 +1,49 @@
+{
+  "candidate": "local",
+  "month": "2026-10-01",
+  "end": "2026-10-23 17:00:00+00:00",
+  "threshold": 0.002,
+  "auc_raw": 0.6011832898441439,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 5017892.227387461,
+  "net_return_pct": 0.3578445477492087,
+  "max_drawdown_pct": 5.467014688313565,
+  "trades": 18,
+  "trading_volume_tmn": 106221203.9781379,
+  "avg_trade_volume_tmn": 2950588.9993927195,
+  "win_rate_pct": 44.44444444444444,
+  "avg_trade_ret_pct": -0.04089480175823283,
+  "profit_factor": 1.0373997931069556,
+  "fees_tmn": 319676.3175692839,
+  "avg_hold_hours": 2.678703703703704,
+  "exit_reasons": {
+    "take_profit": 8,
+    "trailing_stop": 5,
+    "stop_loss": 4,
+    "flatten_end": 1
+  },
+  "by_symbol": {
+    "ADATMN": {
+      "count": 5,
+      "sum": 309305.0
+    },
+    "AVAXTMN": {
+      "count": 2,
+      "sum": 60162.0
+    },
+    "PEPETMN": {
+      "count": 1,
+      "sum": -56409.0
+    },
+    "SUITMN": {
+      "count": 6,
+      "sum": -245030.0
+    },
+    "UNITMN": {
+      "count": 4,
+      "sum": -50135.0
+    }
+  },
+  "sharpe_hourly_annualized": 0.36406481789415324,
+  "open_at_end": 0
+}

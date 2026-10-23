@@ -1,0 +1,308 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).",
+ "user": "001f51835448 | binance | [Binance Delisting] Notice of Removal of Margin Trading Pairs - 2026-09-25 -- \n8b92a40bdf49 | binance | [Binance Delisting] Notice of Removal of Spot Trading Pairs - 2026-09-25 -- \n10c862f8355e | coindesk | A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech -- The venture investor behind early bets on Coinbase, Solana and Uniswap said is broadening its focus, joining other crypto investment firms looking beyond blockchain to artificial intelligence and tech themes.\ne0f417c72171 | coindesk | Irish central bank fines Coinbase Ireland $3.6 million over fund safeguarding failures -- When Silvergate was on the verge of collapse in 2023, Coinbase instructed 30 customers to deposit funds into an alternate account held by Coinbase at another U.S. bank.\necb65d37b8f1 | coindesk | Crypto for Advisors: Stablecoins are ready for prime time -- \n1c82539a5fb8 | coindesk | Crypto custody specialist Fireblocks denies it's in talks to be acquired by Visa -- The company is in talks with Visa over a potential $2.5 billion acquisition, Axios reported.\n06e8e7f9c5f6 | coindesk | Crypto is making a splash in U.S. elections — but chiefly in jabs about industry influence -- Boosters often say crypto voters can swing elections, but Democrats are seeking mileage out of tying crypto to Trump, corruption and attempts to buy seats in Congress.\n613fa9c96650 | coindesk | Ethereum’s four-minute settlement plan could lower the cost of moving crypto -- A new draft targets a fourfold cut in the time it takes Ethereum transactions to become final, which could free up money transfer services tie up while customers’ payments clear.\n5167cb51918a | coindesk | Crypto traders seek shelter in bitcoin as altcoins slide and ETF flows wobble -- Your day-ahead look for Oct. 21, 2026\nbd3faf669997 | coindesk | Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines -- Bitcoin as much as 2.9% to around $81,600 as Nasdaq futures dropped, while the CoinDesk 80 lost 3.5% and DeFi index slid 6%.\n99fe80db4f04 | coindesk | Crypto traders price India telecoms company Reliance Jio's IPO at about $110 billion -- The pre-IPO Jio contract on Bitget is trading near $12, a roughly 4% premium on the top price band, as India’s largest public offering remains open for subscription.\n5f5e64d3096d | coindesk | Live updates: Bitcoin falls back to $81,000, with interest rates tumbling as stocks crack -- The Nasdaq is down more than 2% as the AI bull market trade continues to unwind. U.S. interest rates are plunging even as oil surges.\n934913da907d | coindesk | Asian stocks tumble, bitcoin retreats as China enters bear market -- Technology shares led regional losses as mixed U.S. earnings unsettled investors and Brent crude climbed above $112 a barrel.\n2be93750182e | coindesk | China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme -- Chinese prosecutors are seeking to confiscate more than 61,800 Bitcoin tied to a $5.7 billion fraud scheme, days after a U.K. court ruled Chinese law governs victims’ claims to the coins.\n925e853f32db | coindesk | Solana’s biggest network change since 2020 is live. Here’s how users benefit -- The new voting system targets settlement in about 150 milliseconds, potentially shortening waits for payments and deposits. Users can keep their existing wallets.\n62539187e163 | coindesk | Bitcoin ETFs attract $1.08 billion in 3 days but it may not be enough for a steep rally -- Past steep rallies ran on about $235 million a day of net inflows into ETFs. The funds are yet to match that pace, according to data analyzed by CoinDesk.\n34bf53448a2e | coindesk | XRP Ledger bug fix moved to November after validator support dipped for two hours -- The fix lost its two-week countdown less than two days from the finish after support slipped to 26 of 35 validators. It’s now back at 31.\n8ac0b698072f | coindesk | Bitcoin gives back its run at $85,000 as Tesla and Meta fail to calm AI nerves -- BTC broke through its $84,000 ceiling late Wednesday, then slid back to the $82,500 support analysts are watching as tech futures fell.\n6295230494d0 | coindesk | Trump to throw spotlight on overseas crypto abuses at White House event -- The president is hosting a cybercrime event that will highlight U.S. authorities' efforts to crack down on crypto scams run by foreign criminal organizations.\n4e302fe1a6bf | coindesk | How a16z-backed DATA is rethinking its blockchain strategy after $30 million Sui deal -- The startup is retiring its own blockchain and moving to Sui with a $30 million investment as it narrows its focus to AI training data.\na3f9a053d790 | coindesk | Bybit will look for big broker partnerships to take on Robinhood in the U.S. -- When it comes to the U.S., Bybit will look to work with with someone like Interactive Brokers (IB), for example, said CEO Ben Zhou.\n22454d0d5a79 | coindesk | Crypto Long & Short: Why real-world assets need fixed-rate loans onchain -- Real-world assets already back the largest stablecoins, yet borrowing against them onchain still runs through variable-rate pools. Peter Gaffney of O2O Capital Partners explains why fixed-rate, fixed-term lending is the missing piece, and how a 5% shift in Sky and Ethena reserves could create $1.8 b\n86eac31d535f | coindesk | Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity -- Vault12 raised $17.45 million selling VGT in 2018 and says it met or dropped every promise, yet the token has never traded on a centralized exchange.\n876079298e09 | coindesk | Japanese visitors may be able to pay with yen stablecoins in South Korea under Shinhan-SBI pact -- The collaboration will explore card-linked merchant payments for Japanese visitors in South Korea and peer-to-peer wallet transfers among broader cross-border trade remittances.\n16bff9555521 | coindesk | Dogecoin wallet, app teams unite in push to give DOGE more everyday uses -- Dogecoin Labs will combine MyDoge, DogeOS and merchant payment tools as developers try to turn coin holders into customers for applications and businesses.\n11ae35b65eaa | coindesk | Bitcoin risk management grows more popular as the 'just bet on price' era fades -- Your day-ahead look for Oct. 21, 2026\ndda726e98f63 | coindesk | OCC's final rule to start fresh in weighing stablecoin rewards against GENIUS Act ban -- The U.S. Office of the Comptroller of the Currency is the first of several federal agencies to finish writing regulations under the act.\nf0c33de20ad4 | cointelegraph | Underdog taps zerohash to bring crypto deposits to prediction markets -- The new funding option, expected to launch later this year, will allow eligible Underdog users to deposit digital assets around the clock.\nf9231a7d9825 | cointelegraph | Bitcoin hashrate hits seven-month high as AI shift fails to ease mining competition -- According to BlocksBridge, Bitcoin’s mining difficulty is rising despite the industry’s AI transition, with smaller operators potentially absorbing equipment abandoned by larger competitors.\n56a567fe3cc3 | cointelegraph | Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures -- According to the Central Bank of Ireland, Coinbase Ireland had agreed with the facts around the enforcement action and will be subject to fines and sanctions upon approval by a high court.",
+ "response": {
+  "items": [
+   {
+    "id": "001f51835448",
+    "score": 0.0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "8b92a40bdf49",
+    "score": 0.0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "10c862f8355e",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "e0f417c72171",
+    "score": -0.03,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.8
+   },
+   {
+    "id": "ecb65d37b8f1",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "1c82539a5fb8",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "06e8e7f9c5f6",
+    "score": 0.0,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "613fa9c96650",
+    "score": 0.08,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "5167cb51918a",
+    "score": -0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "bd3faf669997",
+    "score": -0.55,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "99fe80db4f04",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "5f5e64d3096d",
+    "score": -0.65,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "934913da907d",
+    "score": -0.35,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "2be93750182e",
+    "score": -0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "925e853f32db",
+    "score": 0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "62539187e163",
+    "score": 0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "34bf53448a2e",
+    "score": -0.12,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "XRP"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "8ac0b698072f",
+    "score": -0.25,
+    "severity": 1,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "6295230494d0",
+    "score": 0.0,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "4e302fe1a6bf",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "a3f9a053d790",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "22454d0d5a79",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "86eac31d535f",
+    "score": 0.0,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "876079298e09",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "16bff9555521",
+    "score": 0.08,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "11ae35b65eaa",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "dda726e98f63",
+    "score": 0.0,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "f0c33de20ad4",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "f9231a7d9825",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "56a567fe3cc3",
+    "score": -0.01,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2060,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 922,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 5,
+   "engine_ttft_ms": 70,
+   "engine_ttlt_ms": 11185,
+   "pre_inference_ms": 109,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 641,
+   "service_ttlt_ms": 11752,
+   "user_visible_ttft_ms": 532
+  },
+  "prompt_tokens": 2024,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2021,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4084,
+  "cost": 0.0011776288,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0011776288
+  }
+ },
+ "latency_s": 13.718,
+ "ts": 1792695026.109067
+}

@@ -1,0 +1,226 @@
+# Wallex AI trading engine configuration.
+# Secrets are never stored here: WALLEX_API_KEY, OPENAI_API_KEY come from environment variables.
+
+run:
+  name: default
+  output_dir: runs          # every run writes decisions.jsonl, trades.csv, equity.csv, report.md here
+  seed: 42
+
+wallex:
+  base_url: https://api.wallex.ir
+  timeout_s: 15
+  max_retries: 4
+  min_request_interval_s: 0.25   # client-side throttle (official rate limits: to be confirmed)
+
+universe:
+  quote: TMN
+  blocked_file: blocked_markets.txt   # challenge blocklist; blocked pairs are never traded
+  # Live strategy S1 (user decision Fri 2026-10-23 02:00: most profitable Toman model, trade in Toman; STRATEGY.md §7.1s).
+  # USDT-pair alternative U1: core [BTCUSDT, ETHUSDT, XRPUSDT, SOLUSDT, PEPEUSDT, XAUTUSDT, BNBUSDT],
+  #   context [BTCUSDT, USDTTMN], model.dir models/u_U1, costs.fee_rate 0.0013.
+  core: [BTCTMN, ETHTMN, SOLTMN, XRPTMN, BNBTMN, DOGETMN, TRXTMN, USDTTMN,
+         PEPETMN, SUITMN, LTCTMN, ADATMN, LINKTMN, AVAXTMN, SHIBTMN, UNITMN]
+  optional: [XAUTTMN]
+  include_optional: false
+  context_pairs: [BTCTMN, USDTTMN]   # used as market-wide features for every pair
+  usdt_premium: false        # also load Wallex <BASE>USDT pairs -> premium of TMN price vs USDT price x USDTTMN
+
+data:
+  dir: data
+  history_days: 365          # 1-minute history to download
+  bar: 1h                    # decision bar (resampled from 1-minute candles)
+
+sentiment:
+  fear_greed: true           # alternative.me daily index (has history -> ML feature)
+  funding: true              # Binance futures funding rates as feature (reachable from this PC; chosen in round 3)
+  news:
+    enabled: true            # headlines scored by GPT -> agent overlay only (no history -> not an ML feature)
+    refresh_min: 30           # only new headlines are scored; ~$0.001 per refresh
+    max_headlines: 25
+    feeds:
+      - https://www.coindesk.com/arc/outboundfeeds/rss/
+      - https://cointelegraph.com/rss
+      - https://arzdigital.com/feed/            # Persian crypto news
+      # Add Persian macro/economy feeds here (rial, sanctions, politics).
+  # Event gate (PLAN.md §15 items 5 + 5b): Trump / Fed / Binance / news -> risk-only actions; replaces `news` when enabled
+  events:
+    enabled: true
+    sources:
+      - {name: trump, kind: rss, url: "https://www.trumpstruth.org/feed", poll_s: 90, prefilter: true}
+      - {name: fed_monetary, kind: fed, url: "https://www.federalreserve.gov/feeds/press_monetary.xml", poll_s: 60}
+      - {name: fed_speeches, kind: fed, url: "https://www.federalreserve.gov/feeds/speeches.xml", poll_s: 300}
+      - {name: fed_all, kind: rss, url: "https://www.federalreserve.gov/feeds/press_all.xml", poll_s: 300, prefilter: true}
+      - {name: binance, kind: binance, catalogs: [48, 49, 161], poll_s: 120}
+      - {name: coindesk, kind: rss, url: "https://www.coindesk.com/arc/outboundfeeds/rss/", poll_s: 120}
+      - {name: cointelegraph, kind: rss, url: "https://cointelegraph.com/rss", poll_s: 120}
+      - {name: decrypt, kind: rss, url: "https://decrypt.co/feed", poll_s: 180}
+      - {name: theblock, kind: rss, url: "https://www.theblock.co/rss.xml", poll_s: 120}
+      - {name: arzdigital, kind: rss, url: "https://arzdigital.com/feed/", poll_s: 300}
+      - {name: bbc_world, kind: rss, url: "https://feeds.bbci.co.uk/news/world/rss.xml", poll_s: 300, prefilter: true}
+    # prefiltered sources (Trump, BBC, Fed misc) are scored only when they mention one of these
+    keywords: [tariff, china, sanction, iran, israel, hormuz, oil, war, strike, missile, nuclear, fed, warsh, powell,
+               interest rate, inflation, recession, crypto, bitcoin, btc, ethereum, xrp, solana, stablecoin, reserve,
+               gold, dollar, treasury, default, shutdown, trade deal, ban, sec]
+    rules:
+      act_max_age_min: 60      # older items are logged (dataset) but never acted on
+      min_severity: 2          # block entries when severity >= 2 ...
+      max_score: -0.5          # ... and score <= -0.5 ...
+      min_novelty: 0.5         # ... and the item is new information ...
+      risk_categories: [tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange, listing_delisting, iran]
+      block_h: 3
+      derisk_severity: 3       # sell to USDT (after gpt-6.1-sol confirms) on severity 3 and score <= -0.7
+      derisk_score: -0.7
+    fed:
+      chair: Warsh             # speeches whose title starts with the chair's name get the detailed Fed scorer
+      calendar_file: data/fed_calendar.yaml   # manual events (chair speeches, CPI, payrolls); FOMC dates are fetched
+      fast_poll_s: 10          # Fed feed polling from 5 min before to 30 min after a calendar event
+      windows_min: {fomc: [120, 15], chair_speech: [120, 15], minutes: [30, 15], cpi: [30, 15], nfp: [30, 15], default: [30, 15]}
+      hawkish_block_h: 4       # stance <= -1 with surprise >= 0.5; stance <= -2 also sells to USDT
+      dovish_wait_min: 15      # stance >= +1: wait, never chase the first spike
+      neutral_block_min: 30
+
+cash:
+  idle: tmn                  # tmn | usdt — user rule: hold USDT when not trading (switched on after the backtest, §7.1l)
+  conv_fee: 0.0031           # USDT/TMN conversion: 0.30% taker + half spread, each way
+
+outside:
+  binance: true              # Binance spot 1h features (global lead, order flow, premium) — STRATEGY.md §7.1i
+
+labels:
+  tp_atr: 1.5                # take-profit = tp_atr * ATR%
+  sl_atr: 1.0                # stop-loss   = sl_atr * ATR%
+  min_tp_pct: 0.012          # take-profit never smaller than this (must beat round-trip fees)
+  min_sl_pct: 0.006
+  max_sl_pct: 0.04
+  horizon_bars: 12           # time stop (bars of data.bar)
+
+model:
+  dir: models                # S1 Toman-pair model (USDT-pair model U1: models/u_U1)
+  kind: ensemble             # lgbm | logreg | ensemble — chosen by `cli.py experiments` round 2 (STRATEGY.md §7)
+  exclude_features: [fng, fng_chg_7, dow, hour_sin, hour_cos]   # did not help out-of-sample
+  train_months: null         # null = all data before validation
+  val_days: 45               # calibration + threshold tuning window
+  test_days: 35              # final held-out test (backtest of record)
+  walk_forward_folds: 5
+  lgbm:
+    n_estimators: 400
+    learning_rate: 0.03
+    num_leaves: 15
+    min_child_samples: 200
+    subsample: 0.8
+    subsample_freq: 1
+    colsample_bytree: 0.8
+    reg_lambda: 5.0
+
+strategy:
+  min_p_win: 0.40            # floor on calibrated probability
+  min_ev_pct: 0.002          # minimum expected value per trade after fees (used if the model has no tuned value)
+  use_tuned_threshold: true  # use the EV threshold tuned on validation and stored in the model bundle
+  max_new_entries_per_bar: 2
+  exit_tp_atr: null          # take-profit for exits in ATRs (null = same as the model's target, labels.tp_atr)
+  trend_filter: none         # market-trend filter (engine/strategy/trend.py); chosen in the training report
+  selection:
+    enabled: false           # two-stage selection model experiment (see PLAN.md 3.2)
+    top_k: 5
+
+agent:
+  enabled: false             # GPT overlay; needs OPENAI_API_KEY
+  base_url: https://api.openai.com/v1
+  screen_model: openai/gpt-6-luna     # headline scoring: ~$0.0005 per 30 headlines (tested 2026-10-22)
+  decision_model: openai/gpt-6.1-sol  # veto/reduce decisions: ~$0.0027 per review; same judgment as the top tier
+  # never use any *astra* model (blocked in engine/agent/llm.py)
+  temperature: null          # GPT-5 models only accept the default; reproducibility comes from the replay cache
+  reasoning_effort: null     # set "low" only for gpt-5-mini style reasoning models
+  timeout_s: 40
+  on_error: veto             # veto | approve — a single failed review (after 3 in a row the agent switches off)
+  reflect_every_h: 8         # reflection on closed trades -> 3 lessons added to later reviews
+  budget_usd: 1.5            # hard spend cap (gateway-reported cost per call, persists across restarts); then agent off
+  price_in_per_m: 2.5        # fallback estimate only if the gateway does not report usage.cost
+  price_out_per_m: 15.0
+  cache_dir: agent_cache     # every prompt/response stored, keyed by input hash (replayable)
+
+risk:
+  initial_equity_tmn: 5000000
+  max_position_frac: 0.90     # S1 (STRATEGY.md §7.1k): one concentrated position, chosen by 3-day mean on validation
+  risk_per_trade: 0.05       # high enough that the position cap (90%) sets the size
+  max_positions: 1
+  max_total_exposure_frac: 0.90   # never all-in
+  daily_loss_limit: 0.08     # pause new entries for the rest of the Tehran day (S1 as selected, §7.1k)
+  daily_halt: null           # U1 hard limit 0.03; off for S1: it cost 3.1 points on the held-out month (§7.1s)
+  max_stop_pct: null         # U1 hard limit 0.02; off for S1 (Toman pairs swing more; the cap cut recovering trades)
+  max_drawdown_kill: 0.30    # sell everything and halt (user decision: profit first; never hit in backtests)
+  ramp_up_hours: 24          # half size during the first hours of a live run
+  ramp_up_size: 1.0          # no half-size start (relaxed limits)
+  trailing_atr: 1.0          # trailing stop activates after +1 ATR; trails at this ATR distance
+  cooldown_bars_after_loss: 1
+  binance_guard:             # crash guard: Wallex follows Binance by ~1-2 min (STRATEGY.md §7.1f)
+    enabled: true            # chosen by the pre-registered rule (validation: +2.18% vs +1.32%, DD 3.14% vs 5.59%)
+    mode: exit               # exit | tighten
+    drop_3m: 0.008           # Binance 3-minute drop that triggers it
+    tighten_to: 0.003        # tighten mode: stop moved to this far below the current price
+
+costs:
+  # Wallex fees on the challenge account (confirmed by the user, 2026-10-22):
+  #   Toman (TMN) markets: maker 0.25%, taker 0.30%   |   USDT markets: maker 0.10%, taker 0.13%
+  tmn_maker_fee: 0.0025
+  tmn_taker_fee: 0.0030
+  usdt_maker_fee: 0.0010
+  usdt_taker_fee: 0.0013
+  fee_rate: 0.0030           # per side used by backtests/EV: the taker fee of the traded quote (Toman pairs; USDT pairs: 0.0013)
+  slippage_bps: 15           # per side, pairs without a measurement: half-spreads of 0.03-0.15% on Toman pairs + impact
+  # per side for USDT pairs: half the median Wallex spread, gap logger Thu 2026-10-22 21:48-23:50 (XAUT: 8 snapshots)
+  slippage_by_pair: {BTCUSDT: 0.0003, ETHUSDT: 0.0009, XRPUSDT: 0.0008, SOLUSDT: 0.0010, PEPEUSDT: 0.0023,
+                     BNBUSDT: 0.0035, XAUTUSDT: 0.0002}
+  shadow_impact_bps: 2       # shadow fills walk the real book (spread included); impact buffer on top
+
+execution:
+  min_order_tmn: 100000      # minimum order on the challenge account (confirmed by the user); overrides Wallex's 50,000
+  entry_style: taker         # marketable limit at once: the edge decays within minutes of the hour close (§7.1i)
+  maker_timeout_s: 90
+  max_entry_slippage_pct: 0.003
+  poll_interval_s: 15
+  backtest_entry_delay_min: 1    # backtests enter 1 minute after the close (realistic for the live fast path)
+
+challenge:
+  start: null                # ISO time; null = when the bot starts
+  end: "2026-10-26T20:00:00+03:30"   # deadline extended (user, Fri 2026-10-23): trade until Monday 20:00 Tehran; submission Monday 23:00
+  no_new_entries_before_end_min: 60  # no new entries from 19:00
+  flatten_before_end_min: 15         # sell every position from 19:45, so all is in Toman by 20:00
+
+# Strategy 2: fair-value gap with maker orders (PLAN.md §14). Values are the replay/shadow defaults;
+# set from the go/no-go results before going live.
+fv:
+  bases: null                # null = every base recorded with a TMN + USDT book
+  theta_in: 0.004            # enter when the TMN bid is this far below fair value
+  theta_cancel: 0.0015       # cancel the buy when the gap shrinks below this
+  exit_edge: 0.0             # sell target = fair value + exit_edge
+  min_profit: 0.0055         # never post the exit below entry * (1 + min_profit)  (≈ 2 x maker fee + 0.05%)
+  hold_max_s: 1800           # time stop
+  stop_pct: 0.006            # stop-loss below entry
+  requote_pct: 0.0005
+  latency_s: 2.0
+  notional_tmn: 600000       # per trade
+  maker_fee: 0.0025          # Toman maker fee (confirmed)
+  taker_fee: 0.0030
+  max_usd_spread: 0.003
+  max_positions: 4
+  max_drawdown_kill: 0.04
+  max_snapshot_age_s: 10
+  loop_s: 1.0
+
+# Strategy 3: trade the Binance lag on USDT pairs (PLAN.md §15). Parameters fixed before any test.
+lag:
+  pairs: [BTCUSDT, ETHUSDT, XRPUSDT, SOLUSDT, PEPEUSDT, BNBUSDT]   # XAUT: no Binance reference
+  interval_s: 5              # gap logger: seconds between snapshots
+  trades_per_loop: 2         # gap logger: Wallex /v1/trades fetches per snapshot (round-robin)
+  basis_window_min: 45       # fair = Binance mid x (1 + rolling median of Wallex/Binance - 1)
+  entry_gap: 0.0035          # buy when the Wallex ask is this far below fair ...
+  bn_move_3m: {BTCUSDT: 0.004, ETHUSDT: 0.004, default: 0.006}   # ... and Binance rose this much in 3 min
+  take_profit: 0.003         # maker sell at entry x (1 + take_profit)
+  time_stop_min: 5
+  bn_reverse: 0.0015         # exit early when Binance falls this far below its price at entry
+  order_ttl_s: 60            # unfilled entry orders are cancelled
+  go_rule: {min_trades: 30, min_profit_factor: 1.2}   # must hold in BOTH windows (historical test)
+  size_frac: 0.25            # of equity per lag-buy trade
+  # half of the Wallex bid-ask spread, from live /v1/depth books (Thu 2026-10-22 21:50 Tehran)
+  half_spread_est: {BTCUSDT: 0.0001, ETHUSDT: 0.001, XRPUSDT: 0.001, SOLUSDT: 0.0004, PEPEUSDT: 0.0012, BNBUSDT: 0.0044}

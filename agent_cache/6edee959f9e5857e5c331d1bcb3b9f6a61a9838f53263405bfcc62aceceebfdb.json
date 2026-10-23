@@ -1,0 +1,44 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are a Federal Reserve analyst for a crypto spot trading bot whose profit is measured in US dollars.\nYou get a new Fed release (FOMC statement, minutes, or a speech by the Fed chair) and, when available, the previous\nFOMC statement. Judge what is NEW relative to the previous statement and to what markets expected.\nReturn JSON:\n- stance: -2 (much more hawkish than expected) .. +2 (much more dovish than expected); 0 = as expected\n- surprise: 0 (fully expected) .. 1 (large surprise)\n- key_change: one sentence on what changed\n- crypto_effect: -1 (bearish for crypto in USD over the next hours) .. +1 (bullish)\nBe calibrated: most releases are close to expectations (stance 0, surprise below 0.3).",
+ "user": "NEW RELEASE: FOMC statement 20260617\nJune 17, 2026 Federal Reserve issues FOMC statement For release at 2:00 p.m. EDT Share The Federal Open Market Committee approved the following statement for release by a 12 – 0 vote: The Committee decided to maintain the target range for the federal funds rate at 3-1/2 to 3-3/4 percent, in support of the Federal Reserve's dual mandate. The Committee reaffirmed its policy of maintaining ample reserves in the banking system. Economic activity is expanding at a solid pace despite elevated uncertainty that owes, in part, to the conflict in the Middle East. Productivity growth and capital investment are strong. Job gains have kept pace with the workforce, and the unemployment rate has changed little. Inflation remains elevated relative to the Committee's 2 percent goal, in part reflecting supply shocks that have driven price increases in certain sectors, including energy. The Committee will deliver price stability. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued June 17, 2026\n\nPREVIOUS FOMC STATEMENT:\nApril 29, 2026 Federal Reserve issues FOMC statement For release at 2:00 p.m. EDT Share Recent indicators suggest that economic activity has been expanding at a solid pace. Job gains have remained low, on average, and the unemployment rate has been little changed in recent months. Inflation is elevated, in part reflecting the recent increase in global energy prices. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Developments in the Middle East are contributing to a high level of uncertainty about the economic outlook. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 3‑1/2 to 3‑3/4 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Lisa D. Cook; Philip N. Jefferson; Anna Paulson; and Christopher J. Waller. Voting against this action were Stephen I. Miran, who preferred to lower the target range for the federal funds rate by 1/4 percentage point at this meeting; and Beth M. Hammack, Neel Kashkari, and Lorie K. Logan, who supported maintaining the target range for the federal funds rate but did not support inclusion of an easing bias in the statement at this time. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued April 29, 2026",
+ "response": {
+  "stance": -1,
+  "surprise": 0.25,
+  "key_change": "Rates are unchanged, but the unanimous statement removes the prior easing bias, describes a stronger labor market, and emphasizes delivering price stability; market expectations were not provided.",
+  "crypto_effect": -0.3
+ },
+ "usage": {
+  "completion_tokens": 136,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 57,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 24,
+   "engine_ttft_ms": 622,
+   "engine_ttlt_ms": 3909,
+   "pre_inference_ms": 154,
+   "service_tbt_ms": 24,
+   "service_ttft_ms": 1278,
+   "service_ttlt_ms": 4548,
+   "user_visible_ttft_ms": 1124
+  },
+  "prompt_tokens": 894,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 1030,
+  "cost": 0.0029647,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0029647
+  }
+ },
+ "latency_s": 6.467,
+ "ts": 1792694326.8813715
+}

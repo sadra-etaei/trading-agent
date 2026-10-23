@@ -1,0 +1,16 @@
+# never ship secrets or bulky local data
+.env
+.env.*
+!.env.example
+**/__pycache__
+**/*.pyc
+runs/
+research_notes/
+reports/
+tests/
+models/
+!models/latest.joblib
+data/
+!data/fed_calendar.yaml
+*.log
+.git

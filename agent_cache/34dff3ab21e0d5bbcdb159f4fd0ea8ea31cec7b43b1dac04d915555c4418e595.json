@@ -1,0 +1,312 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "24c1654f90de | decrypt | a16z Drops Crypto From Its Name, Widens Bets to AI and Frontier Tech -- Andreessen Horowitz is renaming its crypto fund a16z Frontier and widening its scope to AI, autonomous machines and biology, saying the line between crypto and everyday tech has blurred.\n0cbb1dc24714 | decrypt | Meta Creates Non-Voting Stock to Fund AI Buildout, Keeping Zuckerberg in Control -- Meta will hand shareholders a free non-voting share for every share they own in January, giving it a way to raise equity for AI spending without diluting Zuckerberg's 60.6% vote.\na8239ff05a94 | decrypt | Coinbase Fined Again in Ireland, This Time $3.6M Over Fund Safeguarding -- The Central Bank of Ireland penalized Coinbase Ireland €3,252,618 for leaning too heavily on its U.S. parent and leaving its safeguarding account underfunded—its second hit to the exchange’s European arm in the last year.\nff452cad40e7 | decrypt | Tesla's Profit Drops 43% as Musk Starts Building Robots and Plans to Sell Driverless Cabs -- Tesla earned $787 million last quarter, down from $1.37 billion, as spending on robots and self-driving cars soared. Optimus is in production, and Tesla aims to get Cybercabs to customers by year-end.\nc59da67c66a1 | decrypt | Oil Climbs Above $111 as AI Stocks Slide, Dragging the S&P 500 and Global Markets With Them -- Brent crude hit a five-month high while Nvidia, Meta and chip stocks fell, pulling Asia's benchmark indexes down by up to 3.5% a week after South Korea's Kospi plunged 7.57%.\n30cd61281f8f | decrypt | Bitcoin ETFs Erase October Losses With $1 Billion in Three Days -- Spot Bitcoin ETFs have drawn about $1.07 billion over three sessions, pushing October flows to a gain of roughly $460 million, even as Bitcoin and Ethereum prices slipped.\nf47ab2ead746 | decrypt | What Is a Neocloud? The GPU Clouds Powering the AI Boom -- Neoclouds like CoreWeave and Nebius rent Nvidia GPUs to AI labs, and several started out mining crypto. Here's how the AI cloud model works.\n936cba4cccf2 | decrypt | Major Banks Find Rogue AI Agents Inside Customer Accounts—And They’re 'Horrified' -- Major banks including Morgan Stanley, JPMorgan, Bank of America, and Citi are moving to restrict third-party AI agents that log in with customers’ credentials.\nd0fdd9fbe3b4 | decrypt | Trade Where You Read: Decrypt Brings Jupiter-Powered Trading to The Information Exchange -- Decrypt is building a destination where readers can discover, understand and trade the news, directly where they consume information.\n22b33bc4b4a5 | decrypt | SoFi Launches Tokenized Deposit That Earns 4.4% and Converts to a Stablecoin -- Each SOFIE token represents $1 on deposit at SoFi Bank, earning 4.40% APY with FDIC insurance—a yield-and-protection combination ordinary stablecoins lack.\n5105627b0976 | decrypt | Italy Busts Mafia 'Secret Bank' That Laundered Money Through Crypto, Seizes $24M -- Police say a car-rental firm near Milan was an underground bank for 'Ndrangheta and Camorra figures, moving money abroad and into crypto.\ncd96c4bc3898 | decrypt | Chinese Prosecutors Seek to Confiscate $5.1B in Bitcoin Seized by UK in Qian Case -- A Tianjin court will hear the application after a six-month notice period, while a parallel fight over the same coins continues in London.\n67b316fe368f | decrypt | Ken Griffin Says AI Is 'Almost Certainly' in a Bubble—And Compares GPUs to Airline Seats -- Citadel's founder says investors are almost certainly in an AI bubble, warns a chip glut could crash prices like empty airline seats, yet expects the survivors to lead for decades.\nd43c01422983 | decrypt | Nvidia Unveils Its Full-Stack Blueprint to Contain and Monitor AI Agents -- Nvidia's OpenShell Reference Architecture pairs a software sandbox on Vera CPUs with Sentry monitoring on BlueField-4 chips, aiming to let companies run autonomous agents while enforcing limits agents cannot reach.\ne2f8472df44d | decrypt | Who Found the PHP Bug That Made Governments Unplug Their Websites? ChatGPT, Of Course -- OpenAI says its models found PHP2Shell and led a two-month coalition to fix it. It's the same AI that broke into Hugging Face and an Australian government portal this year.\n37f052be0579 | decrypt | How a SpaceX and Tesla Merger Would Reshape Musk’s AI Empire -- Both boards are now studying a tie-up that would put Grok, X, Starlink, orbital data centers, a chip megafactory and Optimus robots under one roof—and under one man's control.\nb74b99b7b00a | decrypt | Bitcoin Hits Weekly High as Crypto Market Rebounds -- Bitcoin is back near $84,500 as XRP and Zcash lead a broad crypto rebound from October's slide, putting \"Uptober\" back on the table.\n8742c30001bb | decrypt | Dogecoin Gets a Dedicated Company to Build Out Its Ecosystem -- Formed with the Dogecoin Foundation and led by MyDoge founder Jordan Jefferson, the new company consolidates the MyDoge wallet, DogeOS app platform, and Such App to build an economy around DOGE.\n3112aaf1465f | decrypt | Musk’s SpaceX-Tesla Merger Would Create a Bitcoin Treasury Behemoth -- Musk said both boards formed committees to weigh a tie-up that would combine Tesla’s 11,509 BTC and SpaceX’s 18,712 BTC—roughly $2.5 billion worth—onto a single balance sheet.\n2c797e7461ce | decrypt | What Is a Bitcoin-Backed Loan? Borrowing Against BTC Explained -- Bitcoin-backed loans let holders borrow cash or stablecoins without selling BTC. Here's how collateral, LTV and liquidations work.\nbf81bf08db8f | decrypt | PHP Panic: Two Critical Bugs Put 70% of the Internet at Risk, and Everyone Is Freaking Out -- Two critical bugs in PHP, the language running most of the web, let strangers take over servers without a password. The patch is out, attacks started early, and governments pulled the plug.\nbc91ae594c61 | decrypt | Solana Alpenglow Goes Live in 'Most Ambitious' Upgrade Since Ethereum's Merge -- The new consensus protocol retires TowerBFT, which had run Solana since its 2020 launch, after a handoff on the live network.\nef0a6069fe2e | decrypt | GTA 6 Trailer Features 'Dacity' Meme Coin—Here's What Traders Think It'll Do -- Grand Theft Auto 6 is rumoured to feature a meme coin, and crypto traders are speculating on how prominently Rockstar will integrate it.\n3b47f83e2630 | decrypt | Morning Minute: Bitcoin Tops JPMorgan’s Ten-Year Forecast for All Assets -- The bank has Bitcoin outperforming all asset classes spanning real estate, stocks and gold over the next 10-15 years.\n19d616d5161f | decrypt | OCC Finalizes GENIUS Act Stablecoin Rules Ahead of January Deadline -- The rule sets reserve, redemption and risk standards for issuers, but the OCC has yet to say when it will begin accepting applications.\n3cdc3cf9bee1 | decrypt | 'Mentality Issue': PlayStation Founder Waves Away Disc Ownership Anger -- PlayStation founder Ken Kutaragi pushed back against anger at Sony's decision to stop producing physical game discs.\n1282895a9f73 | decrypt | UK Banks Hit With 10,000 Complaints Over Blocked Crypto Transfers in 90 Days: Report -- Lloyds drew the most complaints despite having no published policy restricting crypto transfers, according to a Stand With Crypto report.\nf2ef16c368cc | decrypt | People Are Vibe Coding the Ads Out of Their Smart TVs: Here's How -- A viral Claude Code prompt lets Android TV owners switch off sponsored rows and tracking software and build their own home screens, with no root access and every change reversible.\n9bf6b3d82ca7 | decrypt | OpenAI Buys Orchestra Bio to Put AI Agents in Charge of Drug Development Grunt Work -- The ChatGPT maker is folding Orchestra’s drug-program agents into Rosalind, its life sciences suite, betting AI can shave time off the decade-plus it takes to bring a medicine to patients.\nf4f8198185d2 | decrypt | JPMorgan Puts a Number on Bitcoin for the First Time: 10% a Year, With a Big Caveat -- J.P. Morgan Asset Management’s 2027 Long-Term Capital Market Assumptions project a 10% annual return for Bitcoin over 10 to 15 years, though the firm isn’t adding it to its main portfolio models.",
+ "response": {
+  "items": [
+   {
+    "id": "24c1654f90de",
+    "score": -0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "0cbb1dc24714",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "a8239ff05a94",
+    "score": -0.08,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "ff452cad40e7",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "c59da67c66a1",
+    "score": -0.25,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "30cd61281f8f",
+    "score": 0.4,
+    "severity": 2,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "f47ab2ead746",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "936cba4cccf2",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "d0fdd9fbe3b4",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "22b33bc4b4a5",
+    "score": 0.08,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "5105627b0976",
+    "score": -0.03,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "cd96c4bc3898",
+    "score": -0.15,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "67b316fe368f",
+    "score": -0.08,
+    "severity": 1,
+    "category": "other",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "d43c01422983",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "e2f8472df44d",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "37f052be0579",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "b74b99b7b00a",
+    "score": 0.1,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "8742c30001bb",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.7
+   },
+   {
+    "id": "3112aaf1465f",
+    "score": 0.05,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "2c797e7461ce",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "bf81bf08db8f",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "bc91ae594c61",
+    "score": 0.2,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "ef0a6069fe2e",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "3b47f83e2630",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "19d616d5161f",
+    "score": 0.15,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "3cdc3cf9bee1",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "1282895a9f73",
+    "score": -0.06,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "f2ef16c368cc",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "9bf6b3d82ca7",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "f4f8198185d2",
+    "score": 0.03,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.3
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2312,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1203,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 114,
+   "engine_ttlt_ms": 14215,
+   "pre_inference_ms": 99,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 458,
+   "service_ttlt_ms": 14566,
+   "user_visible_ttft_ms": 358
+  },
+  "prompt_tokens": 2251,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2248,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4563,
+  "cost": 0.00121969,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00121969
+  }
+ },
+ "latency_s": 40.649,
+ "ts": 1792750998.9713585
+}

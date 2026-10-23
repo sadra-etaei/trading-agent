@@ -1,0 +1,324 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).",
+ "user": "ab68561bbfe1 | trump | While listening to our National Anthem, LeBron James disrespects our Country! I said right from the beginning that he’s no good, a TOTAL DISGRACE. LeBron James should apologize to all of those Great American Warriors and Heroes who died for the American Flag, and all that our Country stands for! President DONALD J. TRUMP -- While listening to our National Anthem, LeBron James disrespects our Country! I said right from the beginning that he’s no good, a TOTAL DISGRACE. LeBron James should apologize to all of those Great American Warriors and Heroes who died for the American Flag, and all that our Country stands for! Pre\na8e832ddbecb | trump | THE WALL STREET JOURNAL: “More Oil Is Now Coming Out of the Persian Gulf Than Before the Iran War.” -- THE WALL STREET JOURNAL: “More Oil Is Now Coming Out of the Persian Gulf Than Before the Iran War.”\n750cb4fc4eff | trump | Iran is doing everything they can to drive up the price of Oil prior to the U.S. Midterm Election. They are even making up fake hits, mines, and everything else, because more Oil is coming through the Hormuz Strait now than it did even prior to the beginning of the Conflict. They continue to kill protestors, and anyone else that happens to be in their way. It is truly an Evil Regime, and I can only hope the American Public, and the World, understands how EVIL they are! 75,000 protestors lie dead -- Iran is doing everything they can to drive up the price of Oil prior to the U.S. Midterm Election. They are even making up fake hits, mines, and everything else, because more Oil is coming through the Hormuz Strait now than it did even prior to the beginning of the Conflict. They continue to kill pr\nce8e957ac87d | trump | TO THE GREAT PEOPLE OF GEORGIA, GET OUT AND VOTE FOR: – Mike Collins for U.S. Senate– Rick Jackson for Governor– Greg Dolezal for Lieutenant Governor– Brian Strickland for Attorney General– Tim Fleming for Secretary of State– Jim Kingston for U.S. Congress (GA-01)– Brian Jack for U.S. Congress (GA-03)– Rich McCormick for U.S. Congress (GA-07)– Austin Scott for U.S. Congress (GA-08)– Andrew Clyde for U.S. Congress (GA-09)– Houston Gaines for U.S. Congress (GA-10)– John Cowan for U.S. Congress (GA -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117484618730589847 TO THE GREAT PEOPLE OF GEORGIA, GET OUT AND VOTE FOR: – Mike Collins for U.S. Senate – Rick Jackson for Governor – Greg Dolezal for Lieutenant Governor – Brian Strickland for Attorney General – Tim Fleming for Secretary of\nd0063b173ec4 | trump | TO THE GREAT PEOPLE OF ARIZONA, GET OUT AND VOTE FOR:– Andy Biggs for Governor– Warren Petersen for Attorney General– Alexander Kolodin for Secretary of State– Jay Feely for U.S. Congress (AZ-01)– Eli Crane for U.S. Congress (AZ-02)– Mark Lamb for U.S. Congress (AZ-05)– Juan Ciscomani for U.S. Congress (AZ-06)– Abraham Hamadeh for U.S. Congress (AZ-08)– Paul Gosar for U.S. Congress (AZ-09)These Great Patriots have my Complete and Total Endorsement — They will never let you down! President DONALD -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117484613863994238 TO THE GREAT PEOPLE OF ARIZONA, GET OUT AND VOTE FOR: – Andy Biggs for Governor – Warren Petersen for Attorney General – Alexander Kolodin for Secretary of State – Jay Feely for U.S. Congress (AZ-01) – Eli Crane for U.S. C\nf31c87cc861e | trump | American Manufacturing is BOOMING. Jobs are coming HOME. We're breaking ALL Economic Estimates. Now Apple is committing to purchasing 100 MILLION DOLLARS of PENNSYLVANIA Titanium for its NEW iPhone. The Radical Left said it couldn't be done. We proved them wrong, AGAIN! I WILL ALWAYS FIGHT FOR THE WONDERFUL PEOPLE OF PENNSYLVANIA. This Investment will be incredible for the people of the 14th Congressional District (Guy Reschenthaler is doing an amazing job!), and the entire Commonwealth. Remembe -- American Manufacturing is BOOMING. Jobs are coming HOME. We're breaking ALL Economic Estimates. Now Apple is committing to purchasing 100 MILLION DOLLARS of PENNSYLVANIA Titanium for its NEW iPhone. The Radical Left said it couldn't be done. We proved them wrong, AGAIN! I WILL ALWAYS FIGHT FOR THE W\ne9fbb67b8886 | trump | TO THE GREAT PEOPLE OF NEVADA, GET OUT AND VOTE FOR: – Joe Lombardo for Governor– Stavros Anthony for Lieutenant Governor– Jim Marchant for Secretary of State– Adriana Guzmán Fralick for Attorney General– Carrie Buck for U.S. Congress (NV-01)– David Flippo for U.S. Congress (NV-02)– Marty O'Donnell for U.S. Congress (NV-03) These Great Patriots have my Complete and Total Endorsement — They will never let you down! President DONALD J. TRUMP -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117469664819644244 TO THE GREAT PEOPLE OF NEVADA, GET OUT AND VOTE FOR: – Joe Lombardo for Governor – Stavros Anthony for Lieutenant Governor – Jim Marchant for Secretary of State – Adriana Guzmán Fralick for Attorney General – Carrie Buck f\nd39c7081f66c | trump | TO THE GREAT PEOPLE OF OHIO, GET OUT AND VOTE FOR: – Jon Husted for U.S. Senate– Vivek Ramaswamy for Governor– Keith Faber for Attorney General– Eric Conroy for U.S. Congress (OH-01)– Dave Taylor for U.S. Congress (OH-02)– Jim Jordan for U.S. Congress (OH-04)– Bob Latta for U.S. Congress (OH-05)– Michael Rulli for U.S. Congress (OH-06)– Max Miller for U.S. Congress (OH-07)– Warren Davidson for U.S. Congress (OH-08)– Derek Merrin for U.S. Congress (OH-09)– Michael Turner for U.S. Congress (OH-10) -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117474908315721936 TO THE GREAT PEOPLE OF OHIO, GET OUT AND VOTE FOR: – Jon Husted for U.S. Senate – Vivek Ramaswamy for Governor – Keith Faber for Attorney General – Eric Conroy for U.S. Congress (OH-01) – Dave Taylor for U.S. Congress (OH-\ndf913d363105 | trump | RT @realDonaldTrumpNumerous people, who requested that sanctions be immediately imposed on Russia, have called to apologize to President Trump in that they didn’t know that he was negotiating the release of Stephen Hubbard, a truly big and important deal for the U.S. If sanctions would have been placed, certainly those negotiations would have come to a complete and total halt. -- RT @ realDonaldTrump Numerous people, who requested that sanctions be immediately imposed on Russia, have called to apologize to President Trump in that they didn’t know that he was negotiating the release of Stephen Hubbard, a truly big and important deal for the U.S. If sanctions would have been p\n32a2fedc7ac4 | trump | Great news for the wealth and prosperity of the United Kingdom, and the wonderful region of Aberdeen. The U.K. has started drilling in the North Sea, one of the greatest and most prosperous areas of OIL in the World. They should go FULL BLAST!!! This will make the U.K. very wealthy again. TAKE DOWN THE COSTLY AND RIDICULOUS WINDMILLS! President DJT -- Great news for the wealth and prosperity of the United Kingdom, and the wonderful region of Aberdeen. The U.K. has started drilling in the North Sea, one of the greatest and most prosperous areas of OIL in the World. They should go FULL BLAST!!! This will make the U.K. very wealthy again. TAKE DOWN \n63e6619557c5 | trump | Numerous people, who requested that sanctions be immediately imposed on Russia, have called to apologize to President Trump in that they didn’t know that he was negotiating the release of Stephen Hubbard, a truly big and important deal for the U.S. If sanctions would have been placed, certainly those negotiations would have come to a complete and total halt. -- Numerous people, who requested that sanctions be immediately imposed on Russia, have called to apologize to President Trump in that they didn’t know that he was negotiating the release of Stephen Hubbard, a truly big and important deal for the U.S. If sanctions would have been placed, certainly thos\nb993120fe95c | trump | Cook Political Report shifts Minnesota Senate race toward GOP: -- Cook Political Report shifts Minnesota Senate race toward GOP: https:// justthenews.com/politics-polic y/cook-political-report-shifts-minnesota-senate-race-toward-gop\n910eae5746a2 | trump | Because of my belief in the Republican Party, and all of our Policies and Principles, and especially after witnessing what is taking place in France, and other locations throughout Europe, I am pleased to announce that, having to do with the Most Important Midterm Elections in our Country’s History, I have spent, or will be spending, over 400 Million Dollars by Election Day. More than 300 Million Dollars has already been spent on Advertising, Direct and Indirect Voter Contact, Rallies, Rally Are -- Because of my belief in the Republican Party, and all of our Policies and Principles, and especially after witnessing what is taking place in France, and other locations throughout Europe, I am pleased to announce that, having to do with the Most Important Midterm Elections in our Country’s History,\n478c4fa12c1c | fed_monetary | Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026 -- Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026\nab0f4053fdb0 | fed_monetary | Minutes of the Federal Open Market Committee, September 15-16, 2026 -- Minutes of the Federal Open Market Committee, September 15-16, 2026\ncdac9a19ed9b | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n4738e45887c8 | fed_monetary | Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting -- Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting\nc947052ed775 | fed_monetary | Minutes of the Board's discount rate meetings on July 20 and July 29, 2026 -- Minutes of the Board's discount rate meetings on July 20 and July 29, 2026\n54f7f2ffdd76 | fed_monetary | Minutes of the Federal Open Market Committee, July 28–29, 2026 -- Minutes of the Federal Open Market Committee, July 28–29, 2026\n90abd173649b | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n4c6a51185c8b | fed_monetary | Minutes of the Board's discount rate meetings on June 8 and June 17, 2026 -- Minutes of the Board's discount rate meetings on June 8 and June 17, 2026\ne78ede4c0154 | fed_monetary | Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy -- Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy\neea0743f728f | fed_monetary | Minutes of the Federal Open Market Committee, June 16-17, 2026 -- Minutes of the Federal Open Market Committee, June 16-17, 2026\n917f45b4ff72 | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n89d8d32cab1d | fed_monetary | Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting -- Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting\n225e920a55c5 | fed_monetary | Minutes of the Board's discount rate meeting on April 20 and 29, 2026 -- Minutes of the Board's discount rate meeting on April 20 and 29, 2026\na59f7c441673 | fed_monetary | Minutes of the Federal Open Market Committee, April 28-29, 2026 -- Minutes of the Federal Open Market Committee, April 28-29, 2026\n5261664c3801 | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\na84b88355402 | fed_speeches | Bowman, Supervisory Modernization After Silicon Valley Bank -- Speech At the Bangkok Economic Festival, Reinventing Bretton Woods Committee, Bangkok, Thailand\nce1353b97b2b | fed_speeches | Waller, The Signaling Value of the Summary of Economic Projections -- Speech At the Istanbul Economic Forum, Central Bank of the Republic of Türkiye, Istanbul, Türkiye",
+ "response": {
+  "items": [
+   {
+    "id": "ab68561bbfe1",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "a8e832ddbecb",
+    "score": 0.05,
+    "severity": 1,
+    "category": "iran",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "750cb4fc4eff",
+    "score": 0.05,
+    "severity": 1,
+    "category": "iran",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "ce8e957ac87d",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d0063b173ec4",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "f31c87cc861e",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "e9fbb67b8886",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d39c7081f66c",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "df913d363105",
+    "score": 0.02,
+    "severity": 1,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "32a2fedc7ac4",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "63e6619557c5",
+    "score": 0.02,
+    "severity": 1,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "b993120fe95c",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "910eae5746a2",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "478c4fa12c1c",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "ab0f4053fdb0",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "cdac9a19ed9b",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "4738e45887c8",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "c947052ed775",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "54f7f2ffdd76",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "90abd173649b",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "4c6a51185c8b",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "e78ede4c0154",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "eea0743f728f",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "917f45b4ff72",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "89d8d32cab1d",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "225e920a55c5",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "a59f7c441673",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "5261664c3801",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "a84b88355402",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "ce1353b97b2b",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2020,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 899,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 77,
+   "engine_ttlt_ms": 11338,
+   "pre_inference_ms": 120,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 694,
+   "service_ttlt_ms": 11948,
+   "user_visible_ttft_ms": 574
+  },
+  "prompt_tokens": 3254,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 3251,
+   "cached_tokens": 0
+  },
+  "total_tokens": 5274,
+  "cost": 0.0014861163,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0014861163
+  }
+ },
+ "latency_s": 13.874,
+ "ts": 1792694066.7743506
+}

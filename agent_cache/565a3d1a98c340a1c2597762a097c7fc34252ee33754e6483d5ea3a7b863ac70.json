@@ -1,0 +1,44 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are a Federal Reserve analyst for a crypto spot trading bot whose profit is measured in US dollars.\nYou get a new Fed release (FOMC statement, minutes, or a speech by the Fed chair) and, when available, the previous\nFOMC statement. Judge what is NEW relative to the previous statement and to what markets expected.\nReturn JSON:\n- stance: -2 (much more hawkish than expected) .. +2 (much more dovish than expected); 0 = as expected\n- surprise: 0 (fully expected) .. 1 (large surprise)\n- key_change: one sentence on what changed\n- crypto_effect: -1 (bearish for crypto in USD over the next hours) .. +1 (bullish)\nBe calibrated: most releases are close to expectations (stance 0, surprise below 0.3).",
+ "user": "NEW RELEASE: FOMC statement 20260729\nJuly 29, 2026 Federal Reserve issues FOMC statement For release at 2:00 p.m. EDT Share The Federal Open Market Committee approved the following statement for release by a 9 – 3 vote: The Committee decided to maintain the target range for the federal funds rate at 3-1/2 to 3-3/4 percent, in support of the Federal Reserve's dual mandate. The Committee is continuing its policy of maintaining ample reserves in the banking system. Economic activity is expanding at a solid pace despite elevated uncertainty that owes, in part, to the conflict in the Middle East. Productivity growth and capital investment are strong. Job gains have kept pace with the workforce, and the unemployment rate has changed little. Inflation remains elevated relative to the Committee's 2 percent goal, in part reflecting supply shocks that have driven price increases in certain sectors, including energy. The Committee will deliver price stability. Voting against the monetary policy action were Beth M. Hammack, Neel Kashkari, and Lorie K. Logan, who preferred to raise the target range for the federal funds rate by 1/4 percentage point at this meeting. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued July 29, 2026\n\nPREVIOUS FOMC STATEMENT:\nJune 17, 2026 Federal Reserve issues FOMC statement For release at 2:00 p.m. EDT Share The Federal Open Market Committee approved the following statement for release by a 12 – 0 vote: The Committee decided to maintain the target range for the federal funds rate at 3-1/2 to 3-3/4 percent, in support of the Federal Reserve's dual mandate. The Committee reaffirmed its policy of maintaining ample reserves in the banking system. Economic activity is expanding at a solid pace despite elevated uncertainty that owes, in part, to the conflict in the Middle East. Productivity growth and capital investment are strong. Job gains have kept pace with the workforce, and the unemployment rate has changed little. Inflation remains elevated relative to the Committee's 2 percent goal, in part reflecting supply shocks that have driven price increases in certain sectors, including energy. The Committee will deliver price stability. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued June 17, 2026",
+ "response": {
+  "stance": -1,
+  "surprise": 0.35,
+  "key_change": "Rates and economic assessments were unchanged, but three members dissented in favor of a 25-basis-point hike versus June's unanimous hold, signaling a hawkish shift whose surprise depends on prior market expectations.",
+  "crypto_effect": -0.35
+ },
+ "usage": {
+  "completion_tokens": 133,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 45,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 27,
+   "engine_ttft_ms": 476,
+   "engine_ttlt_ms": 4028,
+   "pre_inference_ms": 105,
+   "service_tbt_ms": 27,
+   "service_ttft_ms": 1060,
+   "service_ttlt_ms": 4605,
+   "user_visible_ttft_ms": 955
+  },
+  "prompt_tokens": 688,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 821,
+  "cost": 0.0025944,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0025944
+  }
+ },
+ "latency_s": 29.455,
+ "ts": 1792694357.3296838
+}

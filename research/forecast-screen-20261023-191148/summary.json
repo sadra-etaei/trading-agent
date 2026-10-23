@@ -1,0 +1,70 @@
+{
+  "compound_return_usdt_pct": -7.921820080534192,
+  "hold_usdt_return_pct": 0.0,
+  "trades": 14,
+  "pooled_profit_factor": 0.4530492513114169,
+  "positive_months": 1,
+  "worst_month_dd_pct": 11.078067153457027,
+  "forecast_mae_pct": 0.9171558077545829,
+  "naive_zero_return_mae_pct": 0.8993116961223102,
+  "eligible": false,
+  "protected_unchanged": true,
+  "folds": [
+    {
+      "start": "2026-07-01 00:00:00+00:00",
+      "end": "2026-08-01 00:00:00+00:00",
+      "return_usdt_pct": 5.533710178639684,
+      "trades": 5,
+      "profit_factor": 9.131855712381752,
+      "max_drawdown_pct": 4.322377293782099,
+      "unfinished": false,
+      "final_usdt": 19.312668962691063,
+      "forecast_mae_pct": 0.7395941136358,
+      "naive_zero_return_mae_pct": 0.7328182142627735,
+      "fit_end": "2026-06-30 19:00:00+00:00",
+      "train_rows": 46786
+    },
+    {
+      "start": "2026-08-01 00:00:00+00:00",
+      "end": "2026-09-01 00:00:00+00:00",
+      "return_usdt_pct": -2.231355243395816,
+      "trades": 1,
+      "profit_factor": 0.0,
+      "max_drawdown_pct": 2.2377972936978963,
+      "unfinished": false,
+      "final_usdt": 17.891661990458566,
+      "forecast_mae_pct": 1.1149291977631457,
+      "naive_zero_return_mae_pct": 1.0651663276850136,
+      "fit_end": "2026-07-31 19:00:00+00:00",
+      "train_rows": 52738
+    },
+    {
+      "start": "2026-09-01 00:00:00+00:00",
+      "end": "2026-10-01 00:00:00+00:00",
+      "return_usdt_pct": -10.36195855968508,
+      "trades": 7,
+      "profit_factor": 0.0,
+      "max_drawdown_pct": 11.078067153457027,
+      "unfinished": false,
+      "final_usdt": 16.40376158357763,
+      "forecast_mae_pct": 0.9466581584579331,
+      "naive_zero_return_mae_pct": 0.9319890354080889,
+      "fit_end": "2026-08-31 19:00:00+00:00",
+      "train_rows": 58690
+    },
+    {
+      "start": "2026-10-01 00:00:00+00:00",
+      "end": "2026-10-21 17:00:00+00:00",
+      "return_usdt_pct": -0.4425955599381859,
+      "trades": 1,
+      "profit_factor": 0.0,
+      "max_drawdown_pct": 2.7940480484759944,
+      "unfinished": false,
+      "final_usdt": 18.219005012531312,
+      "forecast_mae_pct": 0.8184954653440879,
+      "naive_zero_return_mae_pct": 0.8230233247521482,
+      "fit_end": "2026-09-30 19:00:00+00:00",
+      "train_rows": 64450
+    }
+  ]
+}

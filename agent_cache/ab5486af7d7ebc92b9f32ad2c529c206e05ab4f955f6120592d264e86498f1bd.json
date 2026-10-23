@@ -1,0 +1,45 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are the risk-overlay agent of an automated crypto spot trading bot on Wallex\n(Iranian exchange, prices in Toman, long-only). A calibrated ML model has proposed a long trade.\nStatistics (price history) are already in the model; your job is to judge what statistics cannot\nsee: news, Iranian macro/political events (rial moves change all TMN prices), exchange or\nregulatory risk, and abnormal market states (illiquidity, extreme moves, conflicting signals).\n\nRules:\n- Default to approve when there is no specific reason against the trade. Do not second-guess\n  the model on ordinary technical grounds.\n- veto only for a concrete, stated reason (e.g. major negative news for this asset or the market,\n  USDT/TMN shock, exchange problems, extremely stale/illiquid market).\n- reduce (size_multiplier 0.25-0.75) when risk is elevated but not clearly negative.\n- risk_off=true only for market-wide shocks; it pauses all new entries for a few hours.\nRespond with JSON only:\n{\"action\": \"approve\"|\"reduce\"|\"veto\", \"size_multiplier\": 0.0-1.0, \"risk_off\": bool,\n \"confidence\": 0.0-1.0, \"reasoning\": \"<= 2 sentences, concrete\"}",
+ "user": "{\"time_utc\": \"2026-10-22T02:00:00+00:00\", \"candidate\": {\"symbol\": \"AVAXTMN\", \"p_win\": 0.684, \"expected_value_pct\": 0.056, \"take_profit_pct\": 1.39, \"stop_loss_pct\": 0.92, \"regime\": \"ranging\", \"ret_24h_pct\": 0.27, \"rsi\": 43.5, \"atr_pct\": 0.92, \"rule_signals\": {\"pullback\": 0, \"mean_reversion\": 0}}, \"portfolio\": {\"equity_tmn\": 4992978, \"cash_tmn\": 4992978, \"open_positions\": {}, \"drawdown_from_peak\": 0.0014, \"daily_pnl\": -0.0014}, \"market\": {\"btc_ret_24h_pct\": 2.88, \"usdt_tmn_ret_24h_pct\": 2.42, \"fear_greed\": 63.0, \"news_market_score\": 0.02}, \"headlines\": [{\"title\": \"American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress\", \"score\": -0.06, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 4.1}, {\"title\": \"Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform\", \"score\": 0.04, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 8.8}, {\"title\": \"Trump to throw spotlight on overseas crypto abuses at White House event\", \"score\": -0.08, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 9.6}, {\"title\": \"How a16z-backed DATA is rethinking its blockchain strategy after $30 million Sui deal\", \"score\": 0.03, \"category\": \"global_crypto\", \"assets\": [\"SUI\"], \"severity\": 1, \"age_h\": 10.6}, {\"title\": \"Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat\", \"score\": 0.13, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 10.8}, {\"title\": \"Bybit will look for big broker partnerships to take on Robinhood in the U.S.\", \"score\": 0.05, \"category\": \"global_crypto\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 10.9}]}",
+ "response": {
+  "action": "reduce",
+  "size_multiplier": 0.75,
+  "risk_off": false,
+  "confidence": 0.78,
+  "reasoning": "USDT/TMN rose 2.42% over 24 hours, indicating elevated local currency-pricing risk and potential reversal exposure for this Toman-denominated entry. The supplied headlines show no major AVAX-specific threat or confirmed market-wide shock, so a veto or trading pause is not warranted."
+ },
+ "usage": {
+  "completion_tokens": 151,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 52,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 25,
+   "engine_ttft_ms": 491,
+   "engine_ttlt_ms": 4309,
+   "pre_inference_ms": 104,
+   "service_tbt_ms": 23,
+   "service_ttft_ms": 764,
+   "service_ttlt_ms": 4240,
+   "user_visible_ttft_ms": 661
+  },
+  "prompt_tokens": 874,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 1025,
+  "cost": 0.0031487,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0031487
+  }
+ },
+ "latency_s": 6.069,
+ "ts": 1792634450.9428837
+}

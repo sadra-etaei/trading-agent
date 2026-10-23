@@ -1,0 +1,52 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "83ff11149eea | cointelegraph | SEC flags tokenization as high-risk area in 2027 market examinations -- The SEC’s latest priorities highlight tokenization as an emerging market risk, while cryptocurrencies remain absent as a standalone examination category.",
+ "response": {
+  "items": [
+   {
+    "id": "83ff11149eea",
+    "score": -0.05,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 185,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 130,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 148,
+   "engine_ttlt_ms": 1652,
+   "pre_inference_ms": 147,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 588,
+   "service_ttlt_ms": 2029,
+   "user_visible_ttft_ms": 441
+  },
+  "prompt_tokens": 397,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 582,
+  "cost": 7.728e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 7.728e-05
+  }
+ },
+ "latency_s": 3.918,
+ "ts": 1792772121.8914137
+}

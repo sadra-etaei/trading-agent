@@ -1,0 +1,13 @@
+run,model_version,quote,agent_enabled,entry_fills,closed,unfinished,closed_pnl_tmn
+shadow-20261021-223719,20261021-223539-ensemble,TMN,False,1,1,0,-2465.3801812499587
+shadow-20261021-231547,20261021-223539-ensemble,TMN,True,0,0,0,0.0
+shadow-20261021-232050,20261021-223539-ensemble,TMN,True,7,5,2,-20150.619759226392
+shadow-20261022-092720,20261021-223539-ensemble,TMN,True,3,2,1,-20131.487542763818
+shadow-20261022-132606,20261022-152044-ensemble,TMN,True,0,0,0,0.0
+shadow-20261022-184947,20261022-160841-ensemble,USDT,True,0,0,0,0.0
+shadow-20261022-185412,20261022-160841-ensemble,USDT,True,0,0,0,0.0
+shadow-20261022-190409,20261022-160841-ensemble,USDT,True,0,0,0,0.0
+shadow-20261022-203906,20261022-160841-ensemble,USDT,True,0,0,0,0.0
+shadow-20261022-224543,20261022-152044-ensemble,TMN,True,0,0,0,0.0
+fv-shadow-20261021-222448,fair-value variants,TMN,,0,0,0,0.0
+fv-shadow-20261021-222649,fair-value variants,TMN,,0,0,0,0.0

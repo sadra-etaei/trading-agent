@@ -1,0 +1,74 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "d48f70218e8c | bbc_world | How Arab parties could hold critical balance of power in Israeli election -- Disaffection has often driven down turnout among Arab Israelis, but there is a strong push to get rid of the right-wing governing coalition.\nb707c67bdb57 | bbc_world | Rosenberg: Russia agrees to Ukraine talks but sees little to talk about in new peace push -- President Vladimir Putin does not feel under pressure right now to end the war, the BBC's Russia Editor writes.\nf104debd0e0c | bbc_world | New York bans horse-drawn carriages after 160 years over safety and abuse concerns -- As the council voted to banish the carriages, views in Central Park were divided over the 160-year-old tradition.\nd0d4a8b5d411 | bbc_world | What is PHP and why did it spark a global cyber-security scramble? -- AI uncovered long-hidden programming flaws, triggering a rare global cyber-security response.",
+ "response": {
+  "items": [
+   {
+    "id": "d48f70218e8c",
+    "score": 0,
+    "severity": 0,
+    "category": "geopolitics",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "b707c67bdb57",
+    "score": -0.02,
+    "severity": 0,
+    "category": "geopolitics",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "f104debd0e0c",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d0d4a8b5d411",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.3
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 347,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 184,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 100,
+   "engine_ttlt_ms": 3047,
+   "pre_inference_ms": 139,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 472,
+   "service_ttlt_ms": 3415,
+   "user_visible_ttft_ms": 332
+  },
+  "prompt_tokens": 555,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 902,
+  "cost": 0.00015755,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00015755
+  }
+ },
+ "latency_s": 5.738,
+ "ts": 1792709270.6789012
+}

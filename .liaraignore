@@ -1,0 +1,26 @@
+# Files `liara deploy` must not upload (same rules as .gitignore; deploy/seed/ is needed by the image).
+# secrets
+.env
+.env.*
+!.env.example
+
+# datasets and run outputs (rebuilt with `python cli.py download` / backtests); never uploaded or committed
+data/*
+!data/fed_calendar.yaml
+runs/
+models/*
+!models/latest.joblib
+!models/u_U1/
+models/u_U1/*
+!models/u_U1/latest.joblib
+*.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# not needed on the server
+research_notes/
+reports/
+tests/

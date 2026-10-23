@@ -1,0 +1,44 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are the risk-overlay agent of a long-only crypto spot bot on Wallex (Toman prices).\nGiven open positions and recent scored headlines, decide whether any position should be closed\nearly because of news the price model cannot see. Only exit for a concrete negative reason\n(severity >= 2 news affecting that asset or the whole market, or a rial/USDT shock).\nRespond with JSON only: {\"exit\": [\"SYMBOL\", ...], \"reasoning\": \"<= 2 sentences\"}",
+ "user": "{\"time_utc\": \"2026-10-22T11:00:00+00:00\", \"positions\": [{\"symbol\": \"UNITMN\", \"entry\": 1922035.13708755, \"now\": 1921224.0, \"pnl_pct\": -0.04}], \"headlines\": [{\"title\": \"Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines\", \"score\": -0.55, \"category\": \"global_crypto\", \"assets\": [\"BTC\", \"ALL\"], \"severity\": 2, \"age_h\": 0.2}, {\"title\": \"Asian stocks tumble, bitcoin retreats as China enters bear market\", \"score\": -0.4, \"category\": \"macro_global\", \"assets\": [\"ALL\"], \"severity\": 2, \"age_h\": 2.2}]}",
+ "response": {
+  "exit": [
+   "UNITMN"
+  ],
+  "reasoning": "Two recent severity-2 headlines signal market-wide crypto weakness, including Bitcoin falling below $82,000 and broader risk-off selling. Both affect ALL assets, providing a concrete negative reason to close UNITMN early."
+ },
+ "usage": {
+  "completion_tokens": 81,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 16,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 25,
+   "engine_ttft_ms": 632,
+   "engine_ttlt_ms": 2686,
+   "pre_inference_ms": 115,
+   "service_tbt_ms": 25,
+   "service_ttft_ms": 992,
+   "service_ttlt_ms": 3045,
+   "user_visible_ttft_ms": 877
+  },
+  "prompt_tokens": 295,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 376,
+  "cost": 0.001426,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.001426
+  }
+ },
+ "latency_s": 6.208,
+ "ts": 1792666868.3724027
+}

@@ -1,0 +1,10 @@
+# Exact versions: the saved models (joblib) load only with the scikit-learn / LightGBM they were trained with.
+numpy==2.4.6
+pandas==3.0.3
+pyarrow==24.0.0
+scikit-learn==1.9.0
+lightgbm==4.7.0
+joblib==1.5.3
+httpx==0.28.1
+PyYAML==6.0.3
+matplotlib==3.11.1

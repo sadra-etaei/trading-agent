@@ -1,0 +1,51 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "a5196b005eda: China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme",
+ "response": {
+  "items": [
+   {
+    "id": "a5196b005eda",
+    "score": -0.2,
+    "category": "regulation",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 158,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 111,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 163,
+   "engine_ttlt_ms": 1438,
+   "pre_inference_ms": 139,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 405,
+   "service_ttlt_ms": 1691,
+   "user_visible_ttft_ms": 267
+  },
+  "prompt_tokens": 254,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 412,
+  "cost": 5.6235e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 5.6235e-05
+  }
+ },
+ "latency_s": 4.669,
+ "ts": 1792652456.5476716
+}

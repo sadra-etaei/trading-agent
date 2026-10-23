@@ -1,0 +1,555 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "9d60b8a6203b: Trump to throw spotlight on overseas crypto abuses at White House event\necd9bec8141b: How a16z-backed DATA is rethinking its blockchain strategy after $30 million Sui deal\nbff5a2ac1d95: Bybit will look for big broker partnerships to take on Robinhood in the U.S.\n1015e8dd5da7: Crypto Long & Short: Why real-world assets need fixed-rate loans onchain\nd2f6844e4bee: Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity\n5a810fcad45f: Japanese visitors may be able to pay with yen stablecoins in South Korea under Shinhan-SBI pact\n70b65ac17ded: Dogecoin wallet, app teams unite in push to give DOGE more everyday uses\n3b26178b6576: Bitcoin risk management grows more popular as the 'just bet on price' era fades\ndb0a0912b1c8: OCC's final rule to start fresh in weighing stablecoin rewards against GENIUS Act ban\na241765cd6e9: Crypto rises with Asian tech stocks, zcash extends gain after setting upgrade date\n95fed60a4e3a: Live updates: Bitcoin holds above $84,000 as Middle East worries resurface\ndfec2c0bd960: SpaceX and Tesla explore merger that would unite more than 30,000 bitcoin\n28f2bca8f254: Monero futures are again heating with leverage, raising volatility risks\nf9f338e18c8a: Tether leads $15 million funding round for AI-focused payment startup Mural\n126a97d0acd0: Zcash developers confirm November date for upgrade that triples payment speed\neb9a59c9f84d: Ripple brings Wall Street into 24/7 stock bets, but HSBC warns markets are still thin\n3a64a5393621: Solana’s Alpenglow, its biggest network overhaul since 2020, goes live Wednesday\nc1a4804cf9bf: A company that vouches for websites had secret keys so weak that 8 of them were cracked\naf7274708685: Bitcoin hovers around $83,000 as AI earnings revive tech, ZEC jumps 11%\nd83971449497: U.S. CFTC sets agenda for AI forum, exploring trading and agentic finance\n625d9f6ccaea: OKX-ICE co-chair Andrew Cuomo calls corporate objections a ‘natural response’ to tokenized stock plans\nd75f06798a27: The Coinbase allegations expose Bitcoin's corporate governance gap\n6e9955f563b6: BlackRock seeks to shield bitcoin investors from losses after rival fund weathers 50% crash\n4e4b16a86fd4: Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre\nef4f1b55ffa3: Microsoft, Alphabet and Goldman Sachs join objections to OKX-ICE tokenized stock trading\n30e12401341d: American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress\n109dc274996f: Tether backs Bolivian fintech bringing USDT payments to food delivery and banking\n6bc0fbd23e28: Trump didn‘t mention ‘crypto’ once in White House cybercrime roundtable\n7c8b326ad803: Here’s what happened in crypto today\n0fd3620a7719: Cardano Foundation urges EU against expanding MiCA rules to DeFi and staking\n1acda150d8d8: UK financial watchdog opens consultations for DeFi guidance, crypto laws\n82b21c697fe7: Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform\n882a12673bc2: Chainlink, Cardano, other blockchain groups push SEC for clearer crypto rules\n5c40c51fccf4: Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat\nb17e316158d0: Solana’s Alpenglow launches on mainnet, targets 99% faster finality\n55818378a9d6: Big Tech’s eMudhra fixes may leave crypto bots exposed, CertiK warns\n8725f3f650f0: 5 alternatives to Ledger to store your Bitcoin\n0b628a44fb73: OCC finalizes GENIUS Act rules for stablecoin issuers and custody\n92aec72ca2d9: Standard Chartered signs definitive deal to acquire Zodia Custody\n13a0afdc6ff3: PancakeSwap TVL tops $380M as major fee overhaul heads to vote\n49e44a61c89d: France proposes liability for crypto exchanges offering DeFi access\n76e8dfc2e5d1: Bitcoin ‘top buyers’ halt BTC price upside with $87.7K now key: Glassnode\n74b031328242: Shinhan, SBI make Japan-Korea tourist spending a test case for yen stablecoins\n1338c9009967: Zcash rallies 12% as developers finalize NU7 activation height\nd731c3745294: Drift exploiter sends $109M in Ether to Tornado Cash in 2 days\nc443553bd8da: Ether ETF outflows continue, pass $1B in October so far\n7f3eec498a95: Malaysia central bank launches DLT platform for tokenized bonds\n98d73831ee0b: Tech giants rush to block 8 eMudhra certs that could enable fake sites\n0baa52411e49: Musk says SpaceX-Tesla merger a ‘good idea’ as AI revenue jumps ninefold\nf6cbdea7c1e5: Qubic restarts blockchain, opens recovery claims after $1.4M hack\na59a53eff4bd: ۱۱ ارز دیجیتال که تحلیلگران بیشترین امید را به رشد آن‌ها دارند\n48638402fadc: هشدار به هولدرهای سولانا؛ این ۳ نشانه نزولی را جدی بگیرید!\n0103fc108a0c: جی‌پی مورگان برای اولین بار آینده ۱۰ ساله بیت کوین را پیش‌بینی کرد\nceec26c381b9: بدترین هفته آلت کوین‌ها؛ بیت کوین پرونده آلت سیزن را می‌بندد؟\nf6e080e0eb25: پیش‌بینی بانک‌های بزرگ از قیمت مس در سال ۲۰۲۷\na6359c9e5ca2: ۱۵ ارز دیجیتال جدید در راه بازار؛ با پروژه‌های آینده آشنا شوید\n61f80de20e64: پیش‌بینی صعودی یک مؤسسه بریتانیایی از طلا و نقره؛ اهداف جدید برای ۲۰۲۷\n3bed1d7a32da: تحلیل ۳ آلت کوین که به محدوده‌های قیمتی سرنوشت‌ساز رسیده‌اند!\neb3db92da1a0: دو مدل برای افزایش ظرفیت زنجیرهٔ موازی سویی و چندزنجیره‌ای پولکادات",
+ "response": {
+  "items": [
+   {
+    "id": "9d60b8a6203b",
+    "score": -0.08,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "ecd9bec8141b",
+    "score": 0.03,
+    "category": "global_crypto",
+    "assets": [
+     "SUI"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "bff5a2ac1d95",
+    "score": 0.05,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "1015e8dd5da7",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "d2f6844e4bee",
+    "score": -0.08,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "5a810fcad45f",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "70b65ac17ded",
+    "score": 0.08,
+    "category": "global_crypto",
+    "assets": [
+     "DOGE"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "3b26178b6576",
+    "score": 0.02,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "db0a0912b1c8",
+    "score": -0.04,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "a241765cd6e9",
+    "score": 0.16,
+    "category": "global_crypto",
+    "assets": [
+     "ALL",
+     "ZEC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "95fed60a4e3a",
+    "score": 0.03,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "dfec2c0bd960",
+    "score": 0.08,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "28f2bca8f254",
+    "score": 0,
+    "category": "global_crypto",
+    "assets": [
+     "XMR"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "f9f338e18c8a",
+    "score": 0.02,
+    "category": "global_crypto",
+    "assets": [
+     "USDT"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "126a97d0acd0",
+    "score": 0.08,
+    "category": "global_crypto",
+    "assets": [
+     "ZEC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "eb9a59c9f84d",
+    "score": 0.04,
+    "category": "global_crypto",
+    "assets": [
+     "XRP"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "3a64a5393621",
+    "score": 0.16,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "severity": 2
+   },
+   {
+    "id": "c1a4804cf9bf",
+    "score": -0.06,
+    "category": "hack_or_exchange",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "af7274708685",
+    "score": 0.18,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ZEC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "d83971449497",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "625d9f6ccaea",
+    "score": -0.04,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "d75f06798a27",
+    "score": -0.02,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "6e9955f563b6",
+    "score": 0.03,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "4e4b16a86fd4",
+    "score": -0.08,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "ef4f1b55ffa3",
+    "score": -0.03,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "30e12401341d",
+    "score": -0.06,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "109dc274996f",
+    "score": 0.03,
+    "category": "global_crypto",
+    "assets": [
+     "USDT"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "6bc0fbd23e28",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "7c8b326ad803",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "0fd3620a7719",
+    "score": 0.04,
+    "category": "regulation",
+    "assets": [
+     "ADA"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "1acda150d8d8",
+    "score": -0.02,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "82b21c697fe7",
+    "score": 0.04,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "882a12673bc2",
+    "score": 0.03,
+    "category": "regulation",
+    "assets": [
+     "LINK",
+     "ADA"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "5c40c51fccf4",
+    "score": 0.13,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "b17e316158d0",
+    "score": 0.16,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "severity": 2
+   },
+   {
+    "id": "55818378a9d6",
+    "score": -0.08,
+    "category": "hack_or_exchange",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "8725f3f650f0",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "0b628a44fb73",
+    "score": 0.06,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "92aec72ca2d9",
+    "score": 0.07,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "13a0afdc6ff3",
+    "score": 0.08,
+    "category": "global_crypto",
+    "assets": [
+     "CAKE"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "49e44a61c89d",
+    "score": -0.12,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "76e8dfc2e5d1",
+    "score": -0.12,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "74b031328242",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "1338c9009964",
+    "score": 0.13,
+    "category": "global_crypto",
+    "assets": [
+     "ZEC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "d731c3745294",
+    "score": -0.2,
+    "category": "hack_or_exchange",
+    "assets": [
+     "DRIFT",
+     "SOL",
+     "ETH"
+    ],
+    "severity": 2
+   },
+   {
+    "id": "c443553bd8da",
+    "score": -0.18,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "7f3eec498a95",
+    "score": 0.02,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "98d73831ee0b",
+    "score": -0.04,
+    "category": "hack_or_exchange",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "0baa52411e49",
+    "score": 0.03,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "f6cbdea7c1e5",
+    "score": -0.04,
+    "category": "hack_or_exchange",
+    "assets": [
+     "QUBIC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "a59a53eff4bd",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "48638402fadc",
+    "score": -0.1,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "0103fc108a0c",
+    "score": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "ceec26c381b9",
+    "score": -0.15,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "f6e080e0eb25",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "a6359c9e5ca2",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "61f80de20e64",
+    "score": 0,
+    "category": "macro_global",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "3bed1d7a32da",
+    "score": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "eb3db92da1a0",
+    "score": 0.06,
+    "category": "global_crypto",
+    "assets": [
+     "SUI",
+     "DOT"
+    ],
+    "severity": 1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2989,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1184,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 5,
+   "engine_ttft_ms": 80,
+   "engine_ttlt_ms": 15683,
+   "pre_inference_ms": 132,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 370,
+   "service_ttlt_ms": 15924,
+   "user_visible_ttft_ms": 237
+  },
+  "prompt_tokens": 1751,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 1748,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4740,
+  "cost": 0.001490515,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.001490515
+  }
+ },
+ "latency_s": 17.8,
+ "ts": 1792624872.4942327
+}

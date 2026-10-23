@@ -1,0 +1,31 @@
+{
+  "production_unchanged": true,
+  "models": 12,
+  "completed_evaluations": 16,
+  "script_sha256": "c4f8b69bf68e4259116148b1210ad88378b55aacb6e60acc134788cd2b4fdc67",
+  "candidates": {
+    "local": {
+      "zero_trade_3day_pct": 73.58490566037736,
+      "median_trades_3day": 0.0,
+      "all_windows_flat": true
+    },
+    "local_premium": {
+      "zero_trade_3day_pct": 73.58490566037736,
+      "median_trades_3day": 0.0,
+      "all_windows_flat": true
+    },
+    "disconnected": {
+      "zero_trade_3day_pct": 75.47169811320755,
+      "median_trades_3day": 0.0,
+      "all_windows_flat": true
+    },
+    "full_reference": {
+      "zero_trade_3day_pct": 40.56603773584906,
+      "median_trades_3day": 1.0,
+      "all_windows_flat": true
+    }
+  },
+  "local_models_no_binance_features": true,
+  "purges_verified": true,
+  "evaluation_end": "2026-10-23 17:00:00+00:00"
+}

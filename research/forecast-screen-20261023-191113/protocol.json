@@ -1,0 +1,31 @@
+{
+  "written_before_results": true,
+  "model": "LightGBM regression, 200 trees, 15 leaves, lr .03, min_child_samples 200, lambda 5, seed 42, 4 threads",
+  "target": "4-hour simple return of Wallex USDT hourly close; no price level or Binance/funding inputs",
+  "test": "monthly expanding chronological fits July-October 2026, 5-hour label purge; all settings fixed, no threshold search",
+  "strategy": "hourly rank by forecast return minus round-trip costs; trade only net forecast >0.20%; 90% size, 1 position, 4h exit, 2% stop, idle USDT, 8% day-entry pause, 30% DD halt, 1h cooldown after loss",
+  "execution": "1-minute entry delay; active/traded minute required for entry and exit; cached market minimums and quantity precision; .13% taker per side plus measured half-spread or conservative .15% fallback",
+  "initial_usdt": 18.3,
+  "pairs": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "XRPUSDT",
+    "SOLUSDT",
+    "PEPEUSDT",
+    "BNBUSDT",
+    "DOGEUSDT",
+    "TRXUSDT"
+  ],
+  "slippage_each_side": {
+    "BTCUSDT": 0.0003,
+    "ETHUSDT": 0.0009,
+    "XRPUSDT": 0.0008,
+    "SOLUSDT": 0.001,
+    "PEPEUSDT": 0.0023,
+    "BNBUSDT": 0.0035,
+    "DOGEUSDT": 0.0015,
+    "TRXUSDT": 0.0015
+  },
+  "go_rule": "positive compounded USDT return, >=30 completed trades, pooled PF>=1.2, >=3 positive months, no unfinished positions; otherwise no promotion",
+  "limitations": "quick screening, not a proven deployment; stored candle fills approximate executable quotes; present-day costs/rules applied historically; no GPT; historical periods previously explored; forecast endpoint target differs from stopped trading payoff; conversion costs from initial/final Toman omitted"
+}

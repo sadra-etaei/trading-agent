@@ -1,0 +1,44 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are a Federal Reserve analyst for a crypto spot trading bot whose profit is measured in US dollars.\nYou get a new Fed release (FOMC statement, minutes, or a speech by the Fed chair) and, when available, the previous\nFOMC statement. Judge what is NEW relative to the previous statement and to what markets expected.\nReturn JSON:\n- stance: -2 (much more hawkish than expected) .. +2 (much more dovish than expected); 0 = as expected\n- surprise: 0 (fully expected) .. 1 (large surprise)\n- key_change: one sentence on what changed\n- crypto_effect: -1 (bearish for crypto in USD over the next hours) .. +1 (bullish)\nBe calibrated: most releases are close to expectations (stance 0, surprise below 0.3).",
+ "user": "NEW RELEASE: FOMC statement 20260128\nJanuary 28, 2026 Federal Reserve issues FOMC statement For release at 2:00 p.m. EST Share Available indicators suggest that economic activity has been expanding at a solid pace. Job gains have remained low, and the unemployment rate has shown some signs of stabilization. Inflation remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty about the economic outlook remains elevated. The Committee is attentive to the risks to both sides of its dual mandate. In support of its goals, the Committee decided to maintain the target range for the federal funds rate at 3‑1/2 to 3‑3/4 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Lisa D. Cook; Beth M. Hammack; Philip N. Jefferson; Neel Kashkari; Lorie K. Logan; and Anna Paulson. Voting against this action were Stephen I. Miran and Christopher J. Waller, who preferred to lower the target range for the federal funds rate by 1/4 percentage point at this meeting. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued January 28, 2026\n\nPREVIOUS FOMC STATEMENT:\nDecember 10, 2025 Federal Reserve issues FOMC statement For release at 2:00 p.m. EST Share Available indicators suggest that economic activity has been expanding at a moderate pace. Job gains have slowed this year, and the unemployment rate has edged up through September. More recent indicators are consistent with these developments. Inflation has moved up since earlier in the year and remains somewhat elevated. The Committee seeks to achieve maximum employment and inflation at the rate of 2 percent over the longer run. Uncertainty about the economic outlook remains elevated. The Committee is attentive to the risks to both sides of its dual mandate and judges that downside risks to employment rose in recent months. In support of its goals and in light of the shift in the balance of risks, the Committee decided to lower the target range for the federal funds rate by 1/4 percentage point to 3-1/2 to 3‑3/4 percent. In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks. The Committee is strongly committed to supporting maximum employment and returning inflation to its 2 percent objective. In assessing the appropriate stance of monetary policy, the Committee will continue to monitor the implications of incoming information for the economic outlook. The Committee would be prepared to adjust the stance of monetary policy as appropriate if risks emerge that could impede the attainment of the Committee's goals. The Committee's assessments will take into account a wide range of information, including readings on labor market conditions, inflation pressures and inflation expectations, and financial and international developments. The Committee judges that reserve balances have declined to ample levels and will initiate purchases of shorter-term Treasury securities as needed to maintain an ample supply of reserves on an ongoing basis. Voting for the monetary policy action were Jerome H. Powell, Chair; John C. Williams, Vice Chair; Michael S. Barr; Michelle W. Bowman; Susan M. Collins; Lisa D. Cook; Philip N. Jefferson; Alberto G. Musalem; and Christopher J. Waller. Voting against this action were Stephen I. Miran, who preferred to lower the target range for the federal funds rate by 1/2 percentage point at this meeting; and Austan D. Goolsbee and Jeffrey R. Schmid, who preferred no change to the target range for the federal funds rate at this meeting. For media inquiries, please email [email protected] or call 202-452-2955. Implementation Note issued December 10, 2025",
+ "response": {
+  "stance": 0,
+  "surprise": 0.2,
+  "key_change": "The Fed paused cuts at 3.50–3.75%, upgraded growth to solid and removed the warning of rising employment downside risks, while two members preferred a quarter-point cut.",
+  "crypto_effect": -0.15
+ },
+ "usage": {
+  "completion_tokens": 130,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 46,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 21,
+   "engine_ttft_ms": 508,
+   "engine_ttlt_ms": 3258,
+   "pre_inference_ms": 109,
+   "service_tbt_ms": 21,
+   "service_ttft_ms": 1139,
+   "service_ttlt_ms": 3860,
+   "user_visible_ttft_ms": 1030
+  },
+  "prompt_tokens": 1145,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 1142,
+   "cached_tokens": 0
+  },
+  "total_tokens": 1275,
+  "cost": 0.00688275,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00688275
+  }
+ },
+ "latency_s": 5.852,
+ "ts": 1792694305.360985
+}

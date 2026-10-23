@@ -1,0 +1,310 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).",
+ "user": "f9231a7d9825 | cointelegraph | Bitcoin hashrate hits seven-month high as AI shift fails to ease mining competition -- According to BlocksBridge, Bitcoin’s mining difficulty is rising despite the industry’s AI transition, with smaller operators potentially absorbing equipment abandoned by larger competitors.\n56a567fe3cc3 | cointelegraph | Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures -- According to the Central Bank of Ireland, Coinbase Ireland had agreed with the facts around the enforcement action and will be subject to fines and sanctions upon approval by a high court.\n17ab3c0f9939 | cointelegraph | Bitcoin circles $81.5K ETF cost basis as Trump Iran comments send stocks lower -- Bitcoin extended daily losses to 3% as US stocks came under pressure from President Donald Trump’s comments on Iran military action.\n71f756305c3d | cointelegraph | Fireblocks disputes report of $2.5B Visa acquisition talks -- Fireblocks told Cointelegraph that reports of a potential $2.5 billion acquisition by Visa are “not true at present time,” while Visa declined to comment on the reported talks.\n614f86bdaed4 | cointelegraph | CryptoQuant CEO calls rising Bitcoin hashrate ‘indirect bullish signal’ from institutions -- Public miners backed by major TradFi players are coming back online, boosting Bitcoin’s hashrate, a positive sign for BTC’s fundamentals, according to CryptoQuant’s Ki Young Ju.\n67a394a31eb1 | cointelegraph | Thailand SEC says several companies eye crypto ETFs, none has applied -- Thailand’s SEC says several asset managers have sought consultations on spot crypto ETFs, but it cannot confirm whether the first funds will launch in 2026.\n7fc938d7b513 | cointelegraph | SoFi unveils bank-issued tokenized deposit for yield-bearing crypto funds -- SoFi Bank launched SoFi Earn, a tokenized deposit paying 4.40% APY with FDIC coverage, allowing users to convert funds to stablecoins 24/7.\n06b8447f7012 | cointelegraph | Bitcoin ETF buyers are trend followers, not setters, DWF Labs says -- DWF Labs research finds that Bitcoin ETF flows follow past BTC price movements rather than predict future returns, with investors buying rallies and selling dips.\nd64d09c283c1 | cointelegraph | The UK needs a workable route to regulated DeFi access -- The UK’s 2027 crypto rules risk a de facto ban on regulated firms providing access to DeFi, argues Coinbase’s European policy head Katie Harries.\n0a0ba3969875 | cointelegraph | CoinDCX admits ‘operational losses’ after $16M wallet transfers draw scrutiny -- CoinDCX said it covered losses caused by a failed transfer process involving compromised wallets and credited all affected user accounts.\nda65cde2c767 | cointelegraph | Bitcoin corrects below $82K after Tesla Q3 results, KOSPI falls -- Bitcoin reversed a run toward $85,000 after Tesla reported lower-than-expected capital expenditure in Q3.\ne7f2677a4d86 | cointelegraph | Starknet voters back research into life beyond Ethereum -- StarkWare plans to release a draft whitepaper in November as it explores an independent, quantum-resistant blockchain.\n62927f752058 | cointelegraph | PHP flaw draws millions of exploit attempts, Cloudflare CEO warns -- Cloudflare’s Matthew Prince said the network saw thousands of exploit attempts even before the PHP vulnerability was publicly disclosed.\n08589a2206e2 | cointelegraph | Bitcoin ETFs bag another $528M, taking 3-day haul past $1B -- US spot Bitcoin ETFs drew $1.08 billion over three trading sessions to push October flows back above water.\n3f5050aa1233 | cointelegraph | Move over memecoins: Crypto ‘meme games’ coming, bagholders and all -- “Plenty will be ponzis. Plenty will get exploited. Plenty will insta die. There will be ridiculous gains, and people will get absolutely f***ing rinsed,” says Illuvium co-founder Kieran Warwick.\nd08b8728f98f | cointelegraph | PHP Foundation admits ‘structural failure’ delayed critical security fix -- Government websites and online services were disrupted after concerns about a PHP bug that could allow attackers to take control of vulnerable servers.\nf2f267f6f296 | cointelegraph | American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress -- Banking advocacy organizations are pushing back against the OCC’s finalized rules on a stablecoin law, arguing against changes to provisions on yield.\n4552892f3aad | cointelegraph | Tether backs Bolivian fintech bringing USDT payments to food delivery and banking -- The investment will support Peso’s expansion across four Latin American markets, where it connects stablecoin payments to merchant services and local banking networks.\n3ffb5f39ef5e | cointelegraph | Trump didn‘t mention ‘crypto’ once in White House cybercrime roundtable -- The US President detailed many schemes defrauding Americans, but referred only to “cybercurrency“ related to scams.\nfe5855afb68e | cointelegraph | Cardano Foundation urges EU against expanding MiCA rules to DeFi and staking -- The foundation called for regulation based on financial risks rather than technology, warning that overlapping rules could create uncertainty for crypto businesses across the EU.\ncba1f8b0fcea | cointelegraph | UK financial watchdog opens consultations for DeFi guidance, crypto laws -- The UK Financial Conduct Authority consultations came just weeks after the agency opened applications for companies under its new crypto regulatory regime.\nf1dab15e2f00 | cointelegraph | Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform -- The OCC has finalized rules for stablecoin reserves and redemptions, with Bessent calling the GENIUS Act a “watershed moment for American finance.”\n0e189729161c | cointelegraph | Chainlink, Cardano, other blockchain groups push SEC for clearer crypto rules -- Six major blockchain organizations urged the SEC to formally recognize digital commodities as non-securities in its proposed regulatory framework.\n358858ce467d | cointelegraph | Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat -- Bitcoin extended gains to approach $85,000 after US stock markets reacted to higher-than-expected SpaceX earnings.\nd0a588543e7c | cointelegraph | Solana’s Alpenglow launches on mainnet, targets 99% faster finality -- Solana’s first major consensus upgrade is targeting 99% finality reduction, seeking to offer users near-immediate transaction settlement and more responsive applications.\n3c9f79ee9703 | cointelegraph | Big Tech’s eMudhra fixes may leave crypto bots exposed, CertiK warns -- CertiK says crypto trading bots and exchange applications may remain exposed to the eMudhra certificate flaw because browser fixes may not protect all software.\nbf13ea901b6e | cointelegraph | 5 alternatives to Ledger to store your Bitcoin -- Hardware wallets aren’t the only way to protect your crypto, but from ETFs and passkeys to multisig accounts, each alternative has its own risks and trade-offs.\n24c1654f90de | decrypt | a16z Drops Crypto From Its Name, Widens Bets to AI and Frontier Tech -- Andreessen Horowitz is renaming its crypto fund a16z Frontier and widening its scope to AI, autonomous machines and biology, saying the line between crypto and everyday tech has blurred.\n0cbb1dc24714 | decrypt | Meta Creates Non-Voting Stock to Fund AI Buildout, Keeping Zuckerberg in Control -- Meta will hand shareholders a free non-voting share for every share they own in January, giving it a way to raise equity for AI spending without diluting Zuckerberg's 60.6% vote.\na8239ff05a94 | decrypt | Coinbase Fined Again in Ireland, This Time $3.6M Over Fund Safeguarding -- The Central Bank of Ireland penalized Coinbase Ireland €3,252,618 for leaning too heavily on its U.S. parent and leaving its safeguarding account underfunded—its second hit to the exchange’s European arm in the last year.",
+ "response": {
+  "items": [
+   {
+    "id": "f9231a7d9825",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.65
+   },
+   {
+    "id": "56a567fe3cc3",
+    "score": -0.05,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.75
+   },
+   {
+    "id": "17ab3c0f9939",
+    "score": -0.45,
+    "severity": 2,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.65
+   },
+   {
+    "id": "71f756305c3d",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "614f86bdaed4",
+    "score": 0.12,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.45
+   },
+   {
+    "id": "67a394a31eb1",
+    "score": 0.02,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "7fc938d7b513",
+    "score": 0.08,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.75
+   },
+   {
+    "id": "06b8447f7012",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.35
+   },
+   {
+    "id": "d64d09c283c1",
+    "score": -0.05,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.55
+   },
+   {
+    "id": "0a0ba3969875",
+    "score": -0.08,
+    "severity": 1,
+    "category": "hack_exchange",
+    "assets": [],
+    "novelty": 0.65
+   },
+   {
+    "id": "da65cde2c767",
+    "score": -0.15,
+    "severity": 1,
+    "category": "us_macro",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "e7f2677a4d86",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.65
+   },
+   {
+    "id": "62927f752058",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "08589a2206e2",
+    "score": 0.35,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "3f5050aa1233",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "d08b8728f98f",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.55
+   },
+   {
+    "id": "f2f267f6f296",
+    "score": 0.02,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.55
+   },
+   {
+    "id": "4552892f3aad",
+    "score": 0.05,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.65
+   },
+   {
+    "id": "3ffb5f39ef5e",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.35
+   },
+   {
+    "id": "fe5855afb68e",
+    "score": -0.04,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.45
+   },
+   {
+    "id": "cba1f8b0fcea",
+    "score": -0.03,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "f1dab15e2f00",
+    "score": 0.08,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "0e189729161c",
+    "score": 0.08,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.55
+   },
+   {
+    "id": "358858ce467d",
+    "score": 0.15,
+    "severity": 1,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.45
+   },
+   {
+    "id": "d0a588543e7c",
+    "score": 0.2,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "novelty": 0.9
+   },
+   {
+    "id": "3c9f79ee9703",
+    "score": -0.03,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.65
+   },
+   {
+    "id": "bf13ea901b6e",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "24c1654f90de",
+    "score": -0.05,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "0cbb1dc24714",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "a8239ff05a94",
+    "score": -0.05,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.15
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2149,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1023,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 7,
+   "engine_ttft_ms": 93,
+   "engine_ttlt_ms": 15288,
+   "pre_inference_ms": 99,
+   "service_tbt_ms": 7,
+   "service_ttft_ms": 414,
+   "service_ttlt_ms": 15590,
+   "user_visible_ttft_ms": 315
+  },
+  "prompt_tokens": 2012,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2009,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4161,
+  "cost": 0.0011676238,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0011676238
+  }
+ },
+ "latency_s": 17.536,
+ "ts": 1792701588.734015
+}

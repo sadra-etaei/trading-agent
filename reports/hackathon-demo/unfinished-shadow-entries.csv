@@ -1,0 +1,4 @@
+run,symbol,decision_id,entry_ts,entry_price,qty,model_version,status,pnl_tmn,entry_tehran
+shadow-20261021-232050,SUITMN,shadow-20261021-232050-000090,2026-10-22T08:01:10.318548+00:00,266106.98699999996,0.75,20261021-223539-ensemble,Open at saved run end; not a current account position,,Oct 22 11:31:10
+shadow-20261021-232050,ADATMN,shadow-20261021-232050-000093,2026-10-22T09:01:37.732146+00:00,58556.72027261138,3.5,20261021-223539-ensemble,Open at saved run end; not a current account position,,Oct 22 12:31:37
+shadow-20261022-092720,SUITMN,shadow-20261022-092720-000081,2026-10-22T13:01:00.505412+00:00,267825.84599999996,2.12,20261021-223539-ensemble,Open at saved run end; not a current account position,,Oct 22 16:31:00

@@ -1,0 +1,52 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "e3354ff6feaf | cointelegraph | New DeepSeek ban in US, Swiss-Asia crypto ties deepen: Asia Express -- DeepSeek banned from US federal civilian agencies over spying fears. Singapore firm behind Europe’s first spot Bitcoin ETF, as Switzerland partners with Vietnam on crypto tech.",
+ "response": {
+  "items": [
+   {
+    "id": "e3354ff6feaf",
+    "score": 0.05,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.3
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 229,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 174,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 7,
+   "engine_ttft_ms": 100,
+   "engine_ttlt_ms": 1599,
+   "pre_inference_ms": 115,
+   "service_tbt_ms": 7,
+   "service_ttft_ms": 705,
+   "service_ttlt_ms": 2199,
+   "user_visible_ttft_ms": 590
+  },
+  "prompt_tokens": 407,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 636,
+  "cost": 7.843e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 7.843e-05
+  }
+ },
+ "latency_s": 3.81,
+ "ts": 1792709900.6423712
+}

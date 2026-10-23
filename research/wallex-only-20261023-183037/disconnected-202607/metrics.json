@@ -1,0 +1,14 @@
+{
+  "candidate": "disconnected",
+  "month": "2026-07-01",
+  "end": "2026-08-01 00:00:00+00:00",
+  "threshold": 0.0,
+  "auc_raw": 0.6762152623131499,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 5000000.0,
+  "net_return_pct": 0.0,
+  "max_drawdown_pct": 0.0,
+  "trades": 0,
+  "sharpe_hourly_annualized": 0.0,
+  "open_at_end": 0
+}

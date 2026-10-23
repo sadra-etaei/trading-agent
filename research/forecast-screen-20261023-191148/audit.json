@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "fold": "202607",
+      "ledger_reconciles": true,
+      "purge_verified": true,
+      "entry_delay_verified": true
+    },
+    {
+      "fold": "202608",
+      "ledger_reconciles": true,
+      "purge_verified": true,
+      "entry_delay_verified": true
+    },
+    {
+      "fold": "202609",
+      "ledger_reconciles": true,
+      "purge_verified": true,
+      "entry_delay_verified": true
+    },
+    {
+      "fold": "202610",
+      "ledger_reconciles": true,
+      "purge_verified": true,
+      "entry_delay_verified": true
+    }
+  ],
+  "parameters_unchanged_from_first_attempt": true,
+  "no_live_changes": true,
+  "script_sha256": "97c08a298747c45cc84d1f8024173b69743e48c8e06d7279b1e8e17402a4ba68"
+}

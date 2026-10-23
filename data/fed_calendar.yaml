@@ -1,0 +1,6 @@
+# Manual Fed/US-macro calendar for the event gate (times in UTC). FOMC decisions are fetched automatically
+# from federalreserve.gov; add chair speeches/testimony, CPI and payrolls here (types: chair_speech, minutes, cpi, nfp).
+# Example:
+#   - {time: "2026-11-13T13:30:00Z", type: cpi, title: "US CPI (October)"}
+events:
+  - {time: "2026-11-18T19:00:00Z", type: minutes, title: "FOMC minutes (Oct 27-28 meeting)"}

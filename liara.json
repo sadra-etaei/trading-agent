@@ -1,0 +1,11 @@
+{
+  "platform": "docker",
+  "app": "CHANGE-ME-liara-app-id",
+  "port": 8080,
+  "disks": [
+    {
+      "name": "bot-data",
+      "mountTo": "/app/persist"
+    }
+  ]
+}

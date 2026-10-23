@@ -1,0 +1,230 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "8c70524314c4 | arzdigital | پیش‌بینی صعودی یک مؤسسه بریتانیایی از طلا و نقره؛ اهداف جدید برای ۲۰۲۷ -- نوسانات اخیر قیمت طلا و نقره این سؤال را مطرح کرده که آیا رشد این دو فلز به پایان رسیده یا هنوز فرصت ثبت رکوردهای جدید وجود دارد؟ مؤسسه بریتانیایی متالز فوکوس (Metals Focus) معتقد است که با وجود فشارهای اخیر، طلا و نقره همچنان ظرفیت رشد دارند و ممکن است در سال ۲۰۲۷ دوباره […] The post پیش‌بینی صعودی\n389700b6a5af | arzdigital | تحلیل ۳ آلت کوین که به محدوده‌های قیمتی سرنوشت‌ساز رسیده‌اند! -- بازار ارزهای دیجیتال در سومین هفته از ماه اکتبر به نقطه عطفی سرنوشت‌ساز رسیده است؛ جایی که سه آلت کوین رفتارهای قیمتی کاملاً متفاوتی را به نمایش گذاشته‌اند و معامله‌گران را در دوراهی سودهای کلان یا ضررهای سنگین قرار داده‌اند. در حالی که برخی از این دارایی‌ها در سایه خریدهای اهرمی جهش‌های نجومی را ثب\n6ecacd1a0a0f | arzdigital | دو مدل برای افزایش ظرفیت زنجیرهٔ موازی سویی و چندزنجیره‌ای پولکادات -- وقتی تعداد کاربران و تراکنش‌ها بالا می‌رود، شبکه باید درخواست‌های بیشتری را بدون ایجاد صف طولانی پردازش کند. این مسئله در بحث مقیاس‌پذیری بلاکچین به دو شکل دیده می‌شود: اجرای تراکنش‌های مستقل در یک زنجیره یا تقسیم کار میان چند زنجیرهٔ متصل. سویی بیشتر بر مسیر نخست تکیه دارد و پولکادات نمونه‌ای از مس\n418f00af9e72 | arzdigital | ۵ محرک سرنوشت‌ساز که می‌توانند بیت کوین را دوباره شش‌رقمی کنند -- خریداران و گاوهای بیت کوین همچنان از اهداف شش‌رقمی سخن می‌گویند، در حالی که این ارز دیجیتال برای حفظ محدوده ۸۱,۰۰۰ دلاری دست‌وپا می‌زند. اکنون بازار در آستانه ۱۰ رویداد و تحول مهم قرار دارد که می‌توانند مسیر کوتاه‌مدت قیمت را تغییر دهند. در همین حال، ۵ عامل بالقوه نیز وجود دارند که ممکن است […] The \n8a47108cf9a2 | arzdigital | بهترین بروکرهای نفت و گاز؛ معرفی و مقایسه ۱۰ بروکر مطرح جهان -- بازار نفت و گاز یکی از مهم‌ترین بازارهای کالایی جهان است و معامله‌گران زیادی از نوسان قیمت نفت خام آمریکا، نفت برنت و گاز طبیعی برای یافتن فرصت‌های معاملاتی استفاده می‌کنند. نوسانات قیمت و واکنش سریع به تغییرات عرضه و تقاضا و اخبار اقتصادی، فرصت‌های سودآوری و درعین‌حال ریسک قابل‌توجهی در این بازار ا\n9dcb7c1e285e | arzdigital | ۳ سیگنال صعودی که احتمال رشد انفجاری دوج کوین را مطرح می‌کنند -- روزهایی که تب میم کوین‌ها بازار ارزهای دیجیتال را فرا گرفته بود و هر روز پروژه‌های جدیدی برای جذب توجه و سرمایه معامله‌گران ظاهر می‌شدند، مدت‌هاست به پایان رسیده است. در آن روزها توکن‌های رنگارنگ پیاپی سر برمی‌آوردند تا توجه عموم و مهم‌تر از آن، سرمایه‌های آماده ورود را به خود جلب کنند. هرچند دوج […\n246179edfacc | arzdigital | برای سرمایه‌گذاری طلا بهتر است یا مسکن؟ مقایسه سود و ریسک‌ها -- وقتی قرار است بخشی از پس‌انداز چندساله را از حالت پول نقد خارج کنیم، طلا و مسکن خیلی زود به دو گزینه اصلی تبدیل می‌شوند. هر دو سال‌هاست بین ایرانی‌ها جای خودشان را باز کرده‌اند، اما نحوه ورود، نگهداری و خروج از این دو بازار، اصلاً شبیه هم نیست. طلا را می‌شود با مبلغی نسبتاً […] The post برای سرمایه‌\n87678df47bc9 | arzdigital | ردپای یک تراکنش روی زنجیره و تفاوت تراکنش محافظت‌شده -- هر تراکنش بلاکچینی فقط جابه‌جایی دارایی نیست. بخشی از دادهٔ آن روی دفترکل ثبت می‌شود و می‌تواند برای بررسی مسیر انتقال، موجودی آدرس و زمان فعالیت به کار برود. تراکنش محافظت‌شده برخی جزئیات، مانند فرستنده، گیرنده یا مبلغ، را از دید عمومی محدود می‌کند. این تفاوت برای درک حریم خصوصی بلاکچین مهم است؛ چو\n5353bdaf02e1 | arzdigital | بهترین بروکر برای معاملات طلا کدام است؟؛ معرفی ۱۰ بروکر و راهنمای انتخاب -- اگر همین حالا از چند تریدر مختلف بپرسید «بهترین بروکر برای معاملات طلا کدام است؟»، احتمالاً هرکدام نام متفاوتی را پیشنهاد می‌کنند. یک نفر به اسپرد پایین اهمیت می‌دهد، دیگری به حساب بدون سواپ و تریدر حرفه‌ای هم معمولاً سرعت اجرای سفارش و کمیسیون را در اولویت می‌گذارد. به همین دلیل، در بازار فارکس چیز\n09e25c7927bf | arzdigital | خطر سقوط زی‌کش به زیر ۱۰۰۰ دلار؛ آیا خریداران تسلیم می‌شوند؟ -- زی‌کش (Zcash)، پادشاه ارزهای دیجیتال حریم خصوصی، روزهای پرنوسانی را پشت سر می‌گذارد. قیمت این ارز دیجیتال در طول سه هفته اخیر ریزش سنگین ۳۱.۱ درصدی را تجربه کرده و از اوج ۱,۶۹۸ دلار تا کف ۱,۱۶۸ دلار عقب نشسته است. این افت ناگهانی باعث نگرانی عمیق سرمایه‌گذاران و تریدرها درباره آینده کوتاه‌مدت زی‌کش \n2268b98f5f1f | arzdigital | همه سیگنال‌ها از صعود بیت کوین می‌گویند، اما یک ریزش بزرگ هم در راه است -- شاخص‌های کلیدی مومنتوم پس از ده ماه رکود و نوسانات فرسایشی، سرانجام همزمان سیگنال صعودی صادر کردند. با این حال، تحلیلگران سرشناس هشدار می‌دهند که این سبزی ناگهانی بازار شاید بیش از حد ساده‌لوحانه به نظر برسد؛ وضعیتی که ممکن است سرمایه‌گذاران کم‌تجربه را در تله خوش‌بینی زودهنگام گرفتار کند. در این مط\n9bd6c08c756d | bbc_world | Two Israeli soldiers killed in attack by suspected Palestinian gunmen in West Bank -- The two attackers were shot dead after a gun battle outside Hebron, four days before Israel's general election.\nf8b5f25080b5 | bbc_world | Woman with Ebola in Nigeria confirmed as wife of Swiss diplomat -- Her husband is currently in isolation but has not developed any symptoms, Swiss officials say.\n045e6f8950a0 | bbc_world | Denmark to ban mink farming in government U-turn -- Once the world's largest producer of mink pelts, the nation's industry has declined in recent years.\nd30bf06f8728 | bbc_world | Powerful earthquake hits Tibet killing 16 people, reports say -- The quake hit a mountainous, sparsely-populated area in what China calls the Tibet Autonomous Region.\n70ad1063dcae | bbc_world | Hospitals deliberately targeted by Sudan's RSF fighters, BBC finds -- The UN human rights chief Volker Türk says the multiple attacks may amount to war crimes.\nbc1422635455 | bbc_world | Trump ordered to answer questions under oath in BBC lawsuit -- Trump is suing the BBC over an episode of Panorama that edited together two different sections of a speech he gave in 2021.\n824d05a43000 | bbc_world | Race to update services' computer systems after cyber-security flaw found -- Websites were taken offline after the developers of programming language PHP said \"critical vulnerabilities\" had been discovered.\nec24793ab506 | bbc_world | 'It's part of the culture' - New York bans horse-drawn carriages after more than 160 years -- The BBC's Madeline Halpert spoke to city tourists, residents and horse carriage workers about the industry and their opinion on the ban.\nc4894f6f23b5 | bbc_world | Ukraine hit by strikes after Russia agrees to new peace talks -- The three waves of Russian missiles were launched at hours after Russia said it was \"ready in principle\" to resume peace talks with the US and Ukraine.\nbe2e6441567b | bbc_world | Rubio turns to small Indian town as US faces high oil prices -- US Secretary of State Marco Rubio pushed a business and energy agenda over diplomacy on his second trip to India this year.\n3b13392d300a | bbc_world | Surveillance and 'constant paranoia': Western diplomats tell BBC of life in war-time Moscow -- Officials compare working in Russia since its full-scale invasion of Ukraine to the Cold War era.",
+ "response": {
+  "items": [
+   {
+    "id": "8c70524314c4",
+    "score": 0.03,
+    "severity": 0,
+    "category": "other",
+    "assets": [
+     "XAUT"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "389700b6a5af",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "6ecacd1a0a0f",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "418f00af9e72",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "8a47108cf9a2",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "9dcb7c1e285e",
+    "score": 0.03,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "246179edfacc",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "87678df47bc9",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "5353bdaf02e1",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "09e25c7927bf",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "2268b98f5f1f",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "9bd6c08c756d",
+    "score": -0.03,
+    "severity": 1,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "f8b5f25080b5",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "045e6f8950a0",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d30bf06f8728",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "70ad1063dcae",
+    "score": -0.02,
+    "severity": 1,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "bc1422635455",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "824d05a43000",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "ec24793ab506",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "c4894f6f23b5",
+    "score": -0.1,
+    "severity": 2,
+    "category": "geopolitics",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "be2e6441567b",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "3b13392d300a",
+    "score": 0,
+    "severity": 0,
+    "category": "geopolitics",
+    "assets": [],
+    "novelty": 0.1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 1649,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 858,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 5,
+   "engine_ttft_ms": 71,
+   "engine_ttlt_ms": 9046,
+   "pre_inference_ms": 102,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 430,
+   "service_ttlt_ms": 9400,
+   "user_visible_ttft_ms": 328
+  },
+  "prompt_tokens": 2355,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2352,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4004,
+  "cost": 0.00106375,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00106375
+  }
+ },
+ "latency_s": 11.423,
+ "ts": 1792763321.873857
+}

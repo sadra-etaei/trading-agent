@@ -1,0 +1,431 @@
+{
+  "written_before_results": true,
+  "network": "disabled; stored data only; GPT/news/event gates not simulated",
+  "candidates": {
+    "local": "Wallex TMN features only",
+    "local_premium": "local plus fresh Wallex USDT/TMN premium features",
+    "disconnected": "same-fold outside-data model, Binance features missing at execution",
+    "full_reference": "same outside-data model with Binance features and crash guard (unavailable on Liara)"
+  },
+  "test_months": [
+    "2026-07",
+    "2026-08",
+    "2026-09",
+    "2026-10 (partial through available candles)"
+  ],
+  "splits": "Expanding fit; separate preceding 30-day calibration and 30-day threshold-selection periods, 13-hour purge at each boundary; no test-month tuning",
+  "threshold": "existing tune_threshold grid and row-based selection, on threshold period only; overlapping signal rows are not actual trades",
+  "costs": "0.30% per side + 15bp per side, 1-minute entry delay; same S1 sizing and exits, no Binance guard except full_reference",
+  "premium_freshness": "premium features missing when either reference USDT market or USDTTMN has <10% active minutes in current hour",
+  "selection_rule": "Eligible if compounded return >0, pooled PF>=1.2, >=30 trades, >=3 strictly positive test months, worst rolling 3-day return >=-5%; highest compound return among local/local_premium; otherwise no recommendation",
+  "limitations": "Historical periods already explored in project; chronological refits reduce leakage but are not fresh prospective evidence. Three-day windows overlap. Final month partial. No production activation.",
+  "protected_before": {
+    "D:\\projects\\algorithmic_trading\\config.yaml": "acd3b24935ca2a56a60e830be537db365ef6c94adff501444bf7d2141bf74e14",
+    "D:\\projects\\algorithmic_trading\\models\\latest.joblib": "8df59c3145fe9a48b1278e23f74d20e2db87cdae1229fd6875f1ff3a54097b64"
+  },
+  "config": {
+    "run": {
+      "name": "default",
+      "output_dir": "runs",
+      "seed": 42
+    },
+    "wallex": {
+      "base_url": "https://api.wallex.ir",
+      "timeout_s": 15,
+      "max_retries": 4,
+      "min_request_interval_s": 0.25
+    },
+    "universe": {
+      "quote": "TMN",
+      "blocked_file": "blocked_markets.txt",
+      "core": [
+        "BTCTMN",
+        "ETHTMN",
+        "SOLTMN",
+        "XRPTMN",
+        "BNBTMN",
+        "DOGETMN",
+        "TRXTMN",
+        "USDTTMN",
+        "PEPETMN",
+        "SUITMN",
+        "LTCTMN",
+        "ADATMN",
+        "LINKTMN",
+        "AVAXTMN",
+        "SHIBTMN",
+        "UNITMN"
+      ],
+      "optional": [
+        "XAUTTMN"
+      ],
+      "include_optional": false,
+      "context_pairs": [
+        "BTCTMN",
+        "USDTTMN"
+      ],
+      "usdt_premium": false
+    },
+    "data": {
+      "dir": "data",
+      "history_days": 365,
+      "bar": "1h"
+    },
+    "sentiment": {
+      "fear_greed": false,
+      "funding": false,
+      "news": {
+        "enabled": true,
+        "refresh_min": 30,
+        "max_headlines": 25,
+        "feeds": [
+          "https://www.coindesk.com/arc/outboundfeeds/rss/",
+          "https://cointelegraph.com/rss",
+          "https://arzdigital.com/feed/"
+        ]
+      },
+      "events": {
+        "enabled": true,
+        "sources": [
+          {
+            "name": "trump",
+            "kind": "rss",
+            "url": "https://www.trumpstruth.org/feed",
+            "poll_s": 90,
+            "prefilter": true
+          },
+          {
+            "name": "fed_monetary",
+            "kind": "fed",
+            "url": "https://www.federalreserve.gov/feeds/press_monetary.xml",
+            "poll_s": 60
+          },
+          {
+            "name": "fed_speeches",
+            "kind": "fed",
+            "url": "https://www.federalreserve.gov/feeds/speeches.xml",
+            "poll_s": 300
+          },
+          {
+            "name": "fed_all",
+            "kind": "rss",
+            "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+            "poll_s": 300,
+            "prefilter": true
+          },
+          {
+            "name": "binance",
+            "kind": "binance",
+            "catalogs": [
+              48,
+              49,
+              161
+            ],
+            "poll_s": 120
+          },
+          {
+            "name": "coindesk",
+            "kind": "rss",
+            "url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+            "poll_s": 120
+          },
+          {
+            "name": "cointelegraph",
+            "kind": "rss",
+            "url": "https://cointelegraph.com/rss",
+            "poll_s": 120
+          },
+          {
+            "name": "decrypt",
+            "kind": "rss",
+            "url": "https://decrypt.co/feed",
+            "poll_s": 180
+          },
+          {
+            "name": "theblock",
+            "kind": "rss",
+            "url": "https://www.theblock.co/rss.xml",
+            "poll_s": 120
+          },
+          {
+            "name": "arzdigital",
+            "kind": "rss",
+            "url": "https://arzdigital.com/feed/",
+            "poll_s": 300
+          },
+          {
+            "name": "bbc_world",
+            "kind": "rss",
+            "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+            "poll_s": 300,
+            "prefilter": true
+          }
+        ],
+        "keywords": [
+          "tariff",
+          "china",
+          "sanction",
+          "iran",
+          "israel",
+          "hormuz",
+          "oil",
+          "war",
+          "strike",
+          "missile",
+          "nuclear",
+          "fed",
+          "warsh",
+          "powell",
+          "interest rate",
+          "inflation",
+          "recession",
+          "crypto",
+          "bitcoin",
+          "btc",
+          "ethereum",
+          "xrp",
+          "solana",
+          "stablecoin",
+          "reserve",
+          "gold",
+          "dollar",
+          "treasury",
+          "default",
+          "shutdown",
+          "trade deal",
+          "ban",
+          "sec"
+        ],
+        "rules": {
+          "act_max_age_min": 60,
+          "min_severity": 2,
+          "max_score": -0.5,
+          "min_novelty": 0.5,
+          "risk_categories": [
+            "tariff_trade",
+            "geopolitics",
+            "fed_monetary",
+            "us_macro",
+            "crypto_policy",
+            "hack_exchange",
+            "listing_delisting",
+            "iran"
+          ],
+          "block_h": 3,
+          "derisk_severity": 3,
+          "derisk_score": -0.7
+        },
+        "fed": {
+          "chair": "Warsh",
+          "calendar_file": "data/fed_calendar.yaml",
+          "fast_poll_s": 10,
+          "windows_min": {
+            "fomc": [
+              120,
+              15
+            ],
+            "chair_speech": [
+              120,
+              15
+            ],
+            "minutes": [
+              30,
+              15
+            ],
+            "cpi": [
+              30,
+              15
+            ],
+            "nfp": [
+              30,
+              15
+            ],
+            "default": [
+              30,
+              15
+            ]
+          },
+          "hawkish_block_h": 4,
+          "dovish_wait_min": 15,
+          "neutral_block_min": 30
+        }
+      }
+    },
+    "cash": {
+      "idle": "tmn",
+      "conv_fee": 0.0031
+    },
+    "outside": {
+      "binance": false
+    },
+    "labels": {
+      "tp_atr": 1.5,
+      "sl_atr": 1.0,
+      "min_tp_pct": 0.012,
+      "min_sl_pct": 0.006,
+      "max_sl_pct": 0.04,
+      "horizon_bars": 12
+    },
+    "model": {
+      "dir": "models",
+      "kind": "ensemble",
+      "exclude_features": [
+        "fng",
+        "fng_chg_7",
+        "dow",
+        "hour_sin",
+        "hour_cos"
+      ],
+      "train_months": null,
+      "val_days": 45,
+      "test_days": 35,
+      "walk_forward_folds": 5,
+      "lgbm": {
+        "n_estimators": 400,
+        "learning_rate": 0.03,
+        "num_leaves": 15,
+        "min_child_samples": 200,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.8,
+        "reg_lambda": 5.0,
+        "n_jobs": 4
+      }
+    },
+    "strategy": {
+      "min_p_win": 0.4,
+      "min_ev_pct": 0.002,
+      "use_tuned_threshold": true,
+      "max_new_entries_per_bar": 2,
+      "exit_tp_atr": null,
+      "trend_filter": "none",
+      "selection": {
+        "enabled": false,
+        "top_k": 5
+      }
+    },
+    "agent": {
+      "enabled": false,
+      "base_url": "https://api.openai.com/v1",
+      "screen_model": "openai/gpt-6-luna",
+      "decision_model": "openai/gpt-6.1-sol",
+      "temperature": null,
+      "reasoning_effort": null,
+      "timeout_s": 40,
+      "on_error": "veto",
+      "reflect_every_h": 8,
+      "budget_usd": 1.5,
+      "price_in_per_m": 2.5,
+      "price_out_per_m": 15.0,
+      "cache_dir": "agent_cache"
+    },
+    "risk": {
+      "initial_equity_tmn": 5000000,
+      "max_position_frac": 0.9,
+      "risk_per_trade": 0.05,
+      "max_positions": 1,
+      "max_total_exposure_frac": 0.9,
+      "daily_loss_limit": 0.08,
+      "daily_halt": null,
+      "max_stop_pct": null,
+      "max_drawdown_kill": 0.3,
+      "ramp_up_hours": 24,
+      "ramp_up_size": 1.0,
+      "trailing_atr": 1.0,
+      "cooldown_bars_after_loss": 1,
+      "binance_guard": {
+        "enabled": false,
+        "mode": "exit",
+        "drop_3m": 0.008,
+        "tighten_to": 0.003
+      }
+    },
+    "costs": {
+      "tmn_maker_fee": 0.0025,
+      "tmn_taker_fee": 0.003,
+      "usdt_maker_fee": 0.001,
+      "usdt_taker_fee": 0.0013,
+      "fee_rate": 0.003,
+      "slippage_bps": 15,
+      "slippage_by_pair": {
+        "BTCUSDT": 0.0003,
+        "ETHUSDT": 0.0009,
+        "XRPUSDT": 0.0008,
+        "SOLUSDT": 0.001,
+        "PEPEUSDT": 0.0023,
+        "BNBUSDT": 0.0035,
+        "XAUTUSDT": 0.0002
+      },
+      "shadow_impact_bps": 2
+    },
+    "execution": {
+      "min_order_tmn": 100000,
+      "entry_style": "taker",
+      "maker_timeout_s": 90,
+      "max_entry_slippage_pct": 0.003,
+      "poll_interval_s": 15,
+      "backtest_entry_delay_min": 1
+    },
+    "challenge": {
+      "start": null,
+      "end": null,
+      "no_new_entries_before_end_min": 60,
+      "flatten_before_end_min": 15
+    },
+    "fv": {
+      "bases": null,
+      "theta_in": 0.004,
+      "theta_cancel": 0.0015,
+      "exit_edge": 0.0,
+      "min_profit": 0.0055,
+      "hold_max_s": 1800,
+      "stop_pct": 0.006,
+      "requote_pct": 0.0005,
+      "latency_s": 2.0,
+      "notional_tmn": 600000,
+      "maker_fee": 0.0025,
+      "taker_fee": 0.003,
+      "max_usd_spread": 0.003,
+      "max_positions": 4,
+      "max_drawdown_kill": 0.04,
+      "max_snapshot_age_s": 10,
+      "loop_s": 1.0
+    },
+    "lag": {
+      "pairs": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "XRPUSDT",
+        "SOLUSDT",
+        "PEPEUSDT",
+        "BNBUSDT"
+      ],
+      "interval_s": 5,
+      "trades_per_loop": 2,
+      "basis_window_min": 45,
+      "entry_gap": 0.0035,
+      "bn_move_3m": {
+        "BTCUSDT": 0.004,
+        "ETHUSDT": 0.004,
+        "default": 0.006
+      },
+      "take_profit": 0.003,
+      "time_stop_min": 5,
+      "bn_reverse": 0.0015,
+      "order_ttl_s": 60,
+      "go_rule": {
+        "min_trades": 30,
+        "min_profit_factor": 1.2
+      },
+      "size_frac": 0.25,
+      "half_spread_est": {
+        "BTCUSDT": 0.0001,
+        "ETHUSDT": 0.001,
+        "XRPUSDT": 0.001,
+        "SOLUSDT": 0.0004,
+        "PEPEUSDT": 0.0012,
+        "BNBUSDT": 0.0044
+      }
+    }
+  }
+}

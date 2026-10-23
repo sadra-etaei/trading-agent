@@ -1,0 +1,82 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "6d43c2f10780: Crypto traders seek shelter in bitcoin as altcoins slide and ETF flows wobble\n47bec32a957f: Live updates: Bitcoin slumps below $82,000 as markets go risk off on AI selloff, oil surge\n633ea1ca94d0: The UK needs a workable route to regulated DeFi access\nefeed804ddee: CoinDCX pledges no user losses after $16M transfers draw scrutiny\nc195791f65f2: ۵ دلیل ترند شدن سرمایه‌گذاری در نقره در سال ۲۰۲۶",
+ "response": {
+  "items": [
+   {
+    "id": "6d43c2f10780",
+    "score": -0.2,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "47bec32a957f",
+    "score": -0.7,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 2
+   },
+   {
+    "id": "633ea1ca94d0",
+    "score": 0.05,
+    "category": "regulation",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "efeed804ddee",
+    "score": -0.1,
+    "category": "hack_or_exchange",
+    "assets": [],
+    "severity": 1
+   },
+   {
+    "id": "c195791f65f2",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 396,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 234,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 9,
+   "engine_ttft_ms": 200,
+   "engine_ttlt_ms": 3894,
+   "pre_inference_ms": 103,
+   "service_tbt_ms": 9,
+   "service_ttft_ms": 425,
+   "service_ttlt_ms": 4121,
+   "user_visible_ttft_ms": 322
+  },
+  "prompt_tokens": 354,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 750,
+  "cost": 0.00013386,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.00013386
+  }
+ },
+ "latency_s": 6.765,
+ "ts": 1792671133.200753
+}

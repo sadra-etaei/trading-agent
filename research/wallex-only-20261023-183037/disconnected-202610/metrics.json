@@ -1,0 +1,44 @@
+{
+  "candidate": "disconnected",
+  "month": "2026-10-01",
+  "end": "2026-10-23 17:00:00+00:00",
+  "threshold": 0.003,
+  "auc_raw": 0.642304404333349,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 4981413.655431846,
+  "net_return_pct": -0.3717268913630778,
+  "max_drawdown_pct": 2.2027011381288153,
+  "trades": 4,
+  "trading_volume_tmn": 20670074.290665857,
+  "avg_trade_volume_tmn": 2583759.286333232,
+  "win_rate_pct": 50.0,
+  "avg_trade_ret_pct": 0.11962313412765613,
+  "profit_factor": 0.8415821256758045,
+  "fees_tmn": 62140.88649778649,
+  "avg_hold_hours": 2.6166666666666667,
+  "exit_reasons": {
+    "take_profit": 2,
+    "stop_loss": 1,
+    "trailing_stop": 1
+  },
+  "by_symbol": {
+    "ADATMN": {
+      "count": 1,
+      "sum": -5983.0
+    },
+    "AVAXTMN": {
+      "count": 1,
+      "sum": 43939.0
+    },
+    "LTCTMN": {
+      "count": 1,
+      "sum": 54800.0
+    },
+    "SUITMN": {
+      "count": 1,
+      "sum": -111342.0
+    }
+  },
+  "sharpe_hourly_annualized": -0.48752614395485117,
+  "open_at_end": 0
+}

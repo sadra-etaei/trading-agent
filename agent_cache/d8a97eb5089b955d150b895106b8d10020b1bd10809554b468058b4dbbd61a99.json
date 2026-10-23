@@ -1,0 +1,277 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "dcc9e9a2d543 | coindesk | Robinhood sees surge in bitcoin, gold prediction markets as traders move beyond sports -- The company's head of futures and prediction markets said bitcoin, gold and oil contracts are among its fastest-growing prediction markets.\nf7b86c674601 | coindesk | Bitcoin Core changes security rules as AI makes finding code bugs dangerously easy -- Developers merged a policy change that ends the months-long embargo for flaws a chatbot could rediscover, after a summer in which AI found hundreds of bitcoin bugs before the humans did.\na94a024997c9 | coindesk | Bitcoin's price is as jumpy as Nvidia's and eight times more turbulent than the euro -- Your day-ahead look for Oct. 23, 2026\n3166af7afa36 | coindesk | Live updates: Bitcoin holds above $81,000 as oil prices hit six-month high -- Brent crude oil surged above $116 per barrel for the first time since late April.\n3289f2c8bdaa | coindesk | Bitcoin steadies near $81,700 as altcoins rebound, pepe climbs 13% -- Bitcoin rose 0.5% to around $81,700 since midnight UTC while the CoinDesk 80 gained 1.4% and memecoins climbed 2.9%.\n8a959d77862f | coindesk | Bitcoin appears to have decoupled from midterm cycle bottom history -- Previous bitcoin bear-market lows followed U.S. midterms, but this year’s recovery raises the possibility that the bottom arrived months earlier.\n56c616706f40 | coindesk | HSBC rolls out its first stablecoin to over 3 million everyday app users -- HSBC and Standard Chartered-led Anchorpoint received Hong Kong’s first stablecoin issuer licenses in April. Anchorpoint began rolling out HKDAP in August.\n9325fb4adc3e | coindesk | Sweden’s central bank revives e-krona debate as stablecoins and digital euro loom -- The Riksbank sees an e-krona as critical to securing national payments and monetary control.\n672f4eda945b | coindesk | India's largest exchange denies hack after sleuths pointed to $16 million in suspicious outflows -- CoinDCX denies its active wallets were hacked after sleuths flagged $16 million in outflows from addresses linked to the India-based exchange.\n7336bc38a93c | coindesk | Polymarket has reportedly fired its marketing chief, also a close friend of the CEO -- Matthew Modabber was reportedly ousted after an internal probe of several instances of misconduct, according to the New York Post.\n731870c8fb76 | coindesk | Ethereum delays Glamsterdam test after security devs flag risk to existing contracts -- Developers canceled Monday's Hoodi activation after researchers showed how new gas rules could let smart contracts permanently record failed operations.\n85c633f8f4c6 | coindesk | Cardano holders are being asked to bet $5 million on copper hitting a new record -- Toto Finance wants 22 million ADA from Cardano’s treasury to buy tokenized copper, and the metal would have to trade well above its all-time high for holders to get their money back.\n1c185be49a2b | coindesk | Bitcoin, gold trim early losses as yen gives up gains. Oil stays near $100 -- Bitcoin and gold pared early losses as the yen gave up gains and Asian stocks rebounded, though oil near $100 keeps inflation risks in focus.\nced483a90aae | coindesk | Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm -- Senator Richard Blumenthal, the ranking Democrat on the investigations subcommittee, added a probe of the ex-White House crypto adviser to his list of crypto interests.\n10c862f8355e | coindesk | A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech -- The venture investor behind early bets on Coinbase, Solana and Uniswap said is broadening its focus, joining other crypto investment firms looking beyond blockchain to artificial intelligence and tech themes.\ne0f417c72171 | coindesk | Irish central bank fines Coinbase Ireland $3.6 million over fund safeguarding failures -- When Silvergate was on the verge of collapse in 2023, Coinbase instructed 30 customers to deposit funds into an alternate account held by Coinbase at another U.S. bank.\necb65d37b8f1 | coindesk | Crypto for Advisors: Stablecoins are ready for prime time -- \n1c82539a5fb8 | coindesk | Crypto custody specialist Fireblocks denies it's in talks to be acquired by Visa -- The company is in talks with Visa over a potential $2.5 billion acquisition, Axios reported.\n06e8e7f9c5f6 | coindesk | Crypto is making a splash in U.S. elections — but chiefly in jabs about industry influence -- Boosters often say crypto voters can swing elections, but Democrats are seeking mileage out of tying crypto to Trump, corruption and attempts to buy seats in Congress.\n613fa9c96650 | coindesk | Ethereum’s four-minute settlement plan could lower the cost of moving crypto -- A new draft targets a fourfold cut in the time it takes Ethereum transactions to become final, which could free up money transfer services tie up while customers’ payments clear.\n5167cb51918a | coindesk | Crypto traders seek shelter in bitcoin as altcoins slide and ETF flows wobble -- Your day-ahead look for Oct. 21, 2026\nbd3faf669997 | coindesk | Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines -- Bitcoin as much as 2.9% to around $81,600 as Nasdaq futures dropped, while the CoinDesk 80 lost 3.5% and DeFi index slid 6%.\n99fe80db4f04 | coindesk | Crypto traders price India telecoms company Reliance Jio's IPO at about $110 billion -- The pre-IPO Jio contract on Bitget is trading near $12, a roughly 4% premium on the top price band, as India’s largest public offering remains open for subscription.\n5f5e64d3096d | coindesk | Live updates: Bitcoin falls back to $81,000, with interest rates tumbling as stocks crack -- The Nasdaq is down more than 2% as the AI bull market trade continues to unwind. U.S. interest rates are plunging even as oil surges.\n934913da907d | coindesk | Asian stocks tumble, bitcoin retreats as China enters bear market -- Technology shares led regional losses as mixed U.S. earnings unsettled investors and Brent crude climbed above $112 a barrel.",
+ "response": {
+  "items": [
+   {
+    "id": "dcc9e9a2d543",
+    "score": 0.08,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "XAUT"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "f7b86c674601",
+    "score": -0.08,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "a94a024997c9",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "3166af7afa36",
+    "score": -0.2,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "3289f2c8bdaa",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "8a959d77862f",
+    "score": 0.04,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "56c616706f40",
+    "score": 0.05,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "9325fb4adc3e",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "672f4eda945b",
+    "score": -0.07,
+    "severity": 1,
+    "category": "hack_exchange",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "7336bc38a93c",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "731870c8fb76",
+    "score": -0.1,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "85c633f8f4c6",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "1c185be49a2b",
+    "score": -0.07,
+    "severity": 1,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "ced483a90aae",
+    "score": -0.06,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "10c862f8355e",
+    "score": -0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "e0f417c72171",
+    "score": -0.06,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "ecb65d37b8f1",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "1c82539a5fb8",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "06e8e7f9c5f6",
+    "score": -0.05,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "613fa9c96650",
+    "score": 0.07,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "5167cb51918a",
+    "score": -0.12,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "bd3faf669997",
+    "score": -0.18,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.4
+   },
+   {
+    "id": "99fe80db4f04",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "5f5e64d3096d",
+    "score": -0.24,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "934913da907d",
+    "score": -0.17,
+    "severity": 2,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2215,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1241,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 85,
+   "engine_ttlt_ms": 13277,
+   "pre_inference_ms": 89,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 430,
+   "service_ttlt_ms": 13618,
+   "user_visible_ttft_ms": 341
+  },
+  "prompt_tokens": 1761,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 1758,
+   "cached_tokens": 0
+  },
+  "total_tokens": 3976,
+  "cost": 0.0010152775,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0010152775
+  }
+ },
+ "latency_s": 15.474,
+ "ts": 1792772520.8420165
+}

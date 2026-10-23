@@ -1,0 +1,69 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "fcd25d47a7a3: Bitcoin hashrate hits seven-month high as AI shift fails to ease mining competition\naf262705e07a: Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures\n4bd29e21f88e: Bitcoin circles $81.5K ETF cost basis as Trump Iran comments send stocks lower",
+ "response": {
+  "items": [
+   {
+    "id": "fcd25d47a7a3",
+    "score": 0.05,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "af262705e07a",
+    "score": -0.1,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "4bd29e21f88e",
+    "score": -0.15,
+    "category": "iran_politics",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 368,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 255,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 172,
+   "engine_ttlt_ms": 3226,
+   "pre_inference_ms": 101,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 368,
+   "service_ttlt_ms": 3417,
+   "user_visible_ttft_ms": 267
+  },
+  "prompt_tokens": 306,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 674,
+  "cost": 0.000100165,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.000100165
+  }
+ },
+ "latency_s": 5.885,
+ "ts": 1792688426.533089
+}

@@ -1,0 +1,35 @@
+{
+  "candidate": "local_premium",
+  "month": "2026-08-01",
+  "end": "2026-09-01 00:00:00+00:00",
+  "threshold": 0.01,
+  "auc_raw": 0.6170356829418024,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 5301792.0037614275,
+  "net_return_pct": 6.035840075228549,
+  "max_drawdown_pct": 0.0,
+  "trades": 3,
+  "trading_volume_tmn": 16745976.322470002,
+  "avg_trade_volume_tmn": 2790996.053745,
+  "win_rate_pct": 100.0,
+  "avg_trade_ret_pct": 3.4884040555511566,
+  "profit_factor": Infinity,
+  "fees_tmn": 51297.196568399486,
+  "avg_hold_hours": 1.5055555555555555,
+  "exit_reasons": {
+    "take_profit": 2,
+    "trailing_stop": 1
+  },
+  "by_symbol": {
+    "ADATMN": {
+      "count": 2,
+      "sum": 157484.0
+    },
+    "SUITMN": {
+      "count": 1,
+      "sum": 144308.0
+    }
+  },
+  "sharpe_hourly_annualized": 6.975470708798646,
+  "open_at_end": 0
+}

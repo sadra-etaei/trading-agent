@@ -1,0 +1,45 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are the risk-overlay agent of an automated crypto spot trading bot on Wallex\n(Iranian exchange, prices in Toman, long-only). A calibrated ML model has proposed a long trade.\nStatistics (price history) are already in the model; your job is to judge what statistics cannot\nsee: news, Iranian macro/political events (rial moves change all TMN prices), exchange or\nregulatory risk, and abnormal market states (illiquidity, extreme moves, conflicting signals).\n\nRules:\n- Default to approve when there is no specific reason against the trade. Do not second-guess\n  the model on ordinary technical grounds.\n- veto only for a concrete, stated reason (e.g. major negative news for this asset or the market,\n  USDT/TMN shock, exchange problems, extremely stale/illiquid market).\n- reduce (size_multiplier 0.25-0.75) when risk is elevated but not clearly negative.\n- risk_off=true only for market-wide shocks; it pauses all new entries for a few hours.\nRespond with JSON only:\n{\"action\": \"approve\"|\"reduce\"|\"veto\", \"size_multiplier\": 0.0-1.0, \"risk_off\": bool,\n \"confidence\": 0.0-1.0, \"reasoning\": \"<= 2 sentences, concrete\"}",
+ "user": "{\"time_utc\": \"2026-10-22T08:00:00+00:00\", \"candidate\": {\"symbol\": \"UNITMN\", \"p_win\": 0.684, \"expected_value_pct\": 0.263, \"take_profit_pct\": 1.82, \"stop_loss_pct\": 1.22, \"regime\": \"ranging\", \"ret_24h_pct\": -4.24, \"rsi\": 33.1, \"atr_pct\": 1.22, \"rule_signals\": {\"pullback\": 0, \"mean_reversion\": 0}}, \"portfolio\": {\"equity_tmn\": 4979849, \"cash_tmn\": 4979849, \"open_positions\": {}, \"drawdown_from_peak\": 0.004, \"daily_pnl\": -0.004}, \"market\": {\"btc_ret_24h_pct\": 1.36, \"usdt_tmn_ret_24h_pct\": 2.53, \"fear_greed\": 63.0, \"news_market_score\": 0.05}, \"headlines\": [{\"title\": \"Bitcoin ETFs bag another $528M, taking 3-day haul past $1B\", \"score\": 0.55, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 2, \"age_h\": 0.4}, {\"title\": \"تکرار کابوس ۲۰۲۲ برای ریپل؟ هشدار تحلیلگر مطرح از احتمال سقوط تا یک دلار\", \"score\": -0.3, \"category\": \"global_crypto\", \"assets\": [\"XRP\"], \"severity\": 1, \"age_h\": 0.4}, {\"title\": \"China seeks to seize 61,800 BTC tied to $5.7 billion fraud scheme\", \"score\": -0.2, \"category\": \"regulation\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 1.6}, {\"title\": \"Solana’s biggest network change since 2020 is live. Here’s how users benefit\", \"score\": 0.25, \"category\": \"global_crypto\", \"assets\": [\"SOL\"], \"severity\": 1, \"age_h\": 2.6}, {\"title\": \"Bitcoin ETFs attract $1.08 billion in 3 days but it may not be enough for a steep rally\", \"score\": 0.2, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 3.3}, {\"title\": \"XRP Ledger bug fix moved to November after validator support dipped for two hours\", \"score\": -0.25, \"category\": \"global_crypto\", \"assets\": [\"XRP\"], \"severity\": 1, \"age_h\": 3.4}, {\"title\": \"Bitcoin gives back its run at $85,000 as Tesla and Meta fail to calm AI nerves\", \"score\": -0.3, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 4.2}, {\"title\": \"American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress\", \"score\": -0.06, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 10.1}]}",
+ "response": {
+  "action": "reduce",
+  "size_multiplier": 0.75,
+  "risk_off": false,
+  "confidence": 0.78,
+  "reasoning": "USDT/TMN rose 2.53% in 24 hours, indicating elevated currency risk that could affect the trade if that move reverses. Supplied headlines show no concrete UNI-specific negative catalyst or confirmed market-wide shock."
+ },
+ "usage": {
+  "completion_tokens": 157,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 72,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 28,
+   "engine_ttft_ms": 549,
+   "engine_ttlt_ms": 4902,
+   "pre_inference_ms": 100,
+   "service_tbt_ms": 28,
+   "service_ttft_ms": 1364,
+   "service_ttlt_ms": 5695,
+   "user_visible_ttft_ms": 1264
+  },
+  "prompt_tokens": 1001,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 1158,
+  "cost": 0.0032798,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0032798
+  }
+ },
+ "latency_s": 8.626,
+ "ts": 1792656063.1953604
+}

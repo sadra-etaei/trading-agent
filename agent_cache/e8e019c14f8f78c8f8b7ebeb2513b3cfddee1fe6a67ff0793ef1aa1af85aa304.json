@@ -1,0 +1,69 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "26e31723d086: Bitcoin slides below $82,000 as AI doubts return, with DeFi tokens leading declines\n7cfc8cb5b284: Crypto traders price India telecoms company Reliance Jio's IPO at about $110 billion\n89127c58e2ed: Bitcoin corrects below $82K after Tesla Q3 results, KOSPI falls",
+ "response": {
+  "items": [
+   {
+    "id": "26e31723d086",
+    "score": -0.55,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ALL"
+    ],
+    "severity": 2
+   },
+   {
+    "id": "7cfc8cb5b284",
+    "score": 0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   },
+   {
+    "id": "89127c58e2ed",
+    "score": -0.4,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ALL"
+    ],
+    "severity": 1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 266,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 158,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 188,
+   "engine_ttlt_ms": 2248,
+   "pre_inference_ms": 105,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 422,
+   "service_ttlt_ms": 2476,
+   "user_visible_ttft_ms": 316
+  },
+  "prompt_tokens": 308,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 574,
+  "cost": 9.752e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 9.752e-05
+  }
+ },
+ "latency_s": 4.121,
+ "ts": 1792666862.1549423
+}

@@ -1,0 +1,50 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).",
+ "user": "13f702aed9eb | cointelegraph | Winklevoss PAC moves into Texas Senate race with $81K ad buy -- While crypto-aligned PACs have stepped up spending in Ohio, a committee launched by the co-founders of crypto exchange Gemini made one of its first forays into the Lone Star State.",
+ "response": {
+  "items": [
+   {
+    "id": "13f702aed9eb",
+    "score": 0,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.5
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 152,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 102,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 85,
+   "engine_ttlt_ms": 981,
+   "pre_inference_ms": 112,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 679,
+   "service_ttlt_ms": 1548,
+   "user_visible_ttft_ms": 567
+  },
+  "prompt_tokens": 341,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 493,
+  "cost": 6.7965e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 6.7965e-05
+  }
+ },
+ "latency_s": 10.568,
+ "ts": 1792697612.0008605
+}

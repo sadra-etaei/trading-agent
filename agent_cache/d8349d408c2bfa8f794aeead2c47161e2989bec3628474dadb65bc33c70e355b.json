@@ -1,0 +1,45 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are the risk-overlay agent of an automated crypto spot trading bot on Wallex\n(Iranian exchange, prices in Toman, long-only). A calibrated ML model has proposed a long trade.\nStatistics (price history) are already in the model; your job is to judge what statistics cannot\nsee: news, Iranian macro/political events (rial moves change all TMN prices), exchange or\nregulatory risk, and abnormal market states (illiquidity, extreme moves, conflicting signals).\n\nRules:\n- Default to approve when there is no specific reason against the trade. Do not second-guess\n  the model on ordinary technical grounds.\n- veto only for a concrete, stated reason (e.g. major negative news for this asset or the market,\n  USDT/TMN shock, exchange problems, extremely stale/illiquid market).\n- reduce (size_multiplier 0.25-0.75) when risk is elevated but not clearly negative.\n- risk_off=true only for market-wide shocks; it pauses all new entries for a few hours.\nRespond with JSON only:\n{\"action\": \"approve\"|\"reduce\"|\"veto\", \"size_multiplier\": 0.0-1.0, \"risk_off\": bool,\n \"confidence\": 0.0-1.0, \"reasoning\": \"<= 2 sentences, concrete\"}",
+ "user": "{\"time_utc\": \"2026-10-22T04:00:00+00:00\", \"candidate\": {\"symbol\": \"ADATMN\", \"p_win\": 0.672, \"expected_value_pct\": 0.123, \"take_profit_pct\": 1.59, \"stop_loss_pct\": 1.06, \"regime\": \"trending\", \"ret_24h_pct\": 1.23, \"rsi\": 42.9, \"atr_pct\": 1.06, \"rule_signals\": {\"pullback\": 0, \"mean_reversion\": 0}}, \"portfolio\": {\"equity_tmn\": 4989126, \"cash_tmn\": 4989126, \"open_positions\": {}, \"drawdown_from_peak\": 0.0022, \"daily_pnl\": -0.0022}, \"market\": {\"btc_ret_24h_pct\": 2.43, \"usdt_tmn_ret_24h_pct\": 2.42, \"fear_greed\": 63.0, \"news_market_score\": -0.1}, \"headlines\": [{\"title\": \"Bitcoin gives back its run at $85,000 as Tesla and Meta fail to calm AI nerves\", \"score\": -0.3, \"category\": \"global_crypto\", \"assets\": [\"BTC\"], \"severity\": 1, \"age_h\": 0.2}, {\"title\": \"American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress\", \"score\": -0.06, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 6.1}, {\"title\": \"Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform\", \"score\": 0.04, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 10.8}, {\"title\": \"Trump to throw spotlight on overseas crypto abuses at White House event\", \"score\": -0.08, \"category\": \"regulation\", \"assets\": [\"ALL\"], \"severity\": 1, \"age_h\": 11.6}]}",
+ "response": {
+  "action": "reduce",
+  "size_multiplier": 0.75,
+  "risk_off": false,
+  "confidence": 0.72,
+  "reasoning": "USDT/TMN rose 2.42% over 24 hours, indicating elevated rial-related pricing risk for the TMN-denominated entry. Supplied headlines show no major ADA-specific threat or market-wide shock, so a modest size reduction is warranted rather than a veto."
+ },
+ "usage": {
+  "completion_tokens": 183,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 89,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 28,
+   "engine_ttft_ms": 710,
+   "engine_ttlt_ms": 5953,
+   "pre_inference_ms": 115,
+   "service_tbt_ms": 29,
+   "service_ttft_ms": 1009,
+   "service_ttlt_ms": 6243,
+   "user_visible_ttft_ms": 894
+  },
+  "prompt_tokens": 753,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 936,
+  "cost": 0.0028129,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0028129
+  }
+ },
+ "latency_s": 8.265,
+ "ts": 1792641661.9578252
+}

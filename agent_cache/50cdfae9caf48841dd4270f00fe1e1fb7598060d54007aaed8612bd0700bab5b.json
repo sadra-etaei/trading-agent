@@ -1,0 +1,300 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "137e08876461 | trump | Senator Roger Marshall of Kansas has done an incredible job in representing his Great State! Because of him, working together with the Trump Administration, Bombardier is investing 270 MILLION DOLLARS, creating THOUSANDS of American Jobs in Kansas, Texas, and Indiana.Senator Marshall, together with Attorney General Ken Paxton of Texas, has done an incredible job in getting this Deal done. They are STRONG Fighters for American Workers, and LOVE their States and our Country!Companies are coming to -- Senator Roger Marshall of Kansas has done an incredible job in representing his Great State! Because of him, working together with the Trump Administration, Bombardier is investing 270 MILLION DOLLARS, creating THOUSANDS of American Jobs in Kansas, Texas, and Indiana. Senator Marshall, together with\n71f982550ad8 | trump | It is my Great Honor to endorse America First Patriot, Max Engling, who is running to be the next Secretary of State of the wonderful State of Indiana!A lifelong Hoosier, very successful Civic Leader, and former Staffer to GREAT U.S. Senator Jim Banks, Max has dedicated his life to serving the Community which he loves so much. Max has an incredible wife, Kelcey, and four beautiful children. A true MAGA Warrior, Max understands that, ALL VOTERS MUST SHOW PHOTO VOTER I.D. (IDENTIFICATION!) AND, AL -- It is my Great Honor to endorse America First Patriot, Max Engling, who is running to be the next Secretary of State of the wonderful State of Indiana! A lifelong Hoosier, very successful Civic Leader, and former Staffer to GREAT U.S. Senator Jim Banks, Max has dedicated his life to serving the Comm\n3139b31e580d | trump | Getting ready to land in Iowa. Big Rally happening. Inflation and Prices coming down, FAST! Campaigning for Ashley Hinson for U.S. Senate, Zach Lahn for Governor, Brenna Bird for Attorney General, Mariannette Miller-Meeks for Iowa’s First Congressional District, Joe Mitchell for Iowa’s Second, Zach Nunn for Iowa’s Third, and Chris McGowan, for Iowa’s Fourth. See you soon. MAKE AMERICA GREAT AGAIN! President DONALD J. TRUMP -- Getting ready to land in Iowa. Big Rally happening. Inflation and Prices coming down, FAST! Campaigning for Ashley Hinson for U.S. Senate, Zach Lahn for Governor, Brenna Bird for Attorney General, Mariannette Miller-Meeks for Iowa’s First Congressional District, Joe Mitchell for Iowa’s Second, Zach \nb325158c6afc | trump | TO THE GREAT PEOPLE OF OHIO, GET OUT AND VOTE FOR: – Jon Husted for U.S. Senate– Vivek Ramaswamy for Governor– Keith Faber for Attorney General– Eric Conroy for U.S. Congress (OH-01)– David Taylor for U.S. Congress (OH-02)– Jim Jordan for U.S. Congress (OH-04)– Bob Latta for U.S. Congress (OH-05)– Michael Rulli for U.S. Congress (OH-06)– Max Miller for U.S. Congress (OH-07)– Warren Davidson for U.S. Congress (OH-08)– Derek Merrin for U.S. Congress (OH-09)– Michael Turner for U.S. Congress (OH-10 -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117486948186851172 TO THE GREAT PEOPLE OF OHIO, GET OUT AND VOTE FOR: – Jon Husted for U.S. Senate – Vivek Ramaswamy for Governor – Keith Faber for Attorney General – Eric Conroy for U.S. Congress (OH-01) – David Taylor for U.S. Congress (OH\n4cf866ec3119 | trump | TO THE GREAT PEOPLE OF NORTH DAKOTA, GET OUT AND VOTE FOR: – Julie Fedorchak for U.S. Congress (ND-AL) Julie is a Great Patriot and has my Complete and Total Endorsement — She will never let you down! President DONALD J. TRUMP -- RT: https://truthsocial.com/users/realDonaldTrump/statuses/117486942922489919 TO THE GREAT PEOPLE OF NORTH DAKOTA, GET OUT AND VOTE FOR: – Julie Fedorchak for U.S. Congress (ND-AL) Julie is a Great Patriot and has my Complete and Total Endorsement — She will never let you down! President DONALD J. T\nab68561bbfe1 | trump | While listening to our National Anthem, LeBron James disrespects our Country! I said right from the beginning that he’s no good, a TOTAL DISGRACE. LeBron James should apologize to all of those Great American Warriors and Heroes who died for the American Flag, and all that our Country stands for! President DONALD J. TRUMP -- While listening to our National Anthem, LeBron James disrespects our Country! I said right from the beginning that he’s no good, a TOTAL DISGRACE. LeBron James should apologize to all of those Great American Warriors and Heroes who died for the American Flag, and all that our Country stands for! Pre\na8e832ddbecb | trump | THE WALL STREET JOURNAL: “More Oil Is Now Coming Out of the Persian Gulf Than Before the Iran War.” -- THE WALL STREET JOURNAL: “More Oil Is Now Coming Out of the Persian Gulf Than Before the Iran War.”\n750cb4fc4eff | trump | Iran is doing everything they can to drive up the price of Oil prior to the U.S. Midterm Election. They are even making up fake hits, mines, and everything else, because more Oil is coming through the Hormuz Strait now than it did even prior to the beginning of the Conflict. They continue to kill protestors, and anyone else that happens to be in their way. It is truly an Evil Regime, and I can only hope the American Public, and the World, understands how EVIL they are! 75,000 protestors lie dead -- Iran is doing everything they can to drive up the price of Oil prior to the U.S. Midterm Election. They are even making up fake hits, mines, and everything else, because more Oil is coming through the Hormuz Strait now than it did even prior to the beginning of the Conflict. They continue to kill pr\n478c4fa12c1c | fed_monetary | Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026 -- Minutes of the Board's discount rate meetings on August 17, September 9, and September 16, 2026\nab0f4053fdb0 | fed_monetary | Minutes of the Federal Open Market Committee, September 15-16, 2026 -- Minutes of the Federal Open Market Committee, September 15-16, 2026\ncdac9a19ed9b | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n4738e45887c8 | fed_monetary | Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting -- Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting\nc947052ed775 | fed_monetary | Minutes of the Board's discount rate meetings on July 20 and July 29, 2026 -- Minutes of the Board's discount rate meetings on July 20 and July 29, 2026\n54f7f2ffdd76 | fed_monetary | Minutes of the Federal Open Market Committee, July 28–29, 2026 -- Minutes of the Federal Open Market Committee, July 28–29, 2026\n90abd173649b | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n4c6a51185c8b | fed_monetary | Minutes of the Board's discount rate meetings on June 8 and June 17, 2026 -- Minutes of the Board's discount rate meetings on June 8 and June 17, 2026\ne78ede4c0154 | fed_monetary | Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy -- Federal Reserve announces the leadership and objectives of its task forces to advance the conduct of monetary policy\neea0743f728f | fed_monetary | Minutes of the Federal Open Market Committee, June 16-17, 2026 -- Minutes of the Federal Open Market Committee, June 16-17, 2026\n917f45b4ff72 | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\n89d8d32cab1d | fed_monetary | Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting -- Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting\n225e920a55c5 | fed_monetary | Minutes of the Board's discount rate meeting on April 20 and 29, 2026 -- Minutes of the Board's discount rate meeting on April 20 and 29, 2026\na59f7c441673 | fed_monetary | Minutes of the Federal Open Market Committee, April 28-29, 2026 -- Minutes of the Federal Open Market Committee, April 28-29, 2026\n5261664c3801 | fed_monetary | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\na84b88355402 | fed_speeches | Bowman, Supervisory Modernization After Silicon Valley Bank -- Speech At the Bangkok Economic Festival, Reinventing Bretton Woods Committee, Bangkok, Thailand\nce1353b97b2b | fed_speeches | Waller, The Signaling Value of the Summary of Economic Projections -- Speech At the Istanbul Economic Forum, Central Bank of the Republic of Türkiye, Istanbul, Türkiye\n7aab64ef00b6 | fed_speeches | Bowman, Modernizing the Regulatory and Supervisory Landscape -- Speech At the 2026 Community Banking Research Conference, sponsored by the Federal Reserve System, the Conference of State Bank Supervisors, and the Federal Deposit Insurance Corporation, St. Louis, Missouri\nc37e09ba7938 | fed_speeches | Bowman, Modernizing Financial Regulation: Initial Observations from eSLR -- Speech At the Atlantic Council 2026 CEO & Senior Management Summit, Washington, D.C.\ne434ebd5dafa | fed_speeches | Jefferson, The U.S. Economy and Monetary Policy -- Speech At the Darden School of Business, University of Virginia, Charlottesville, Virginia\nef8ebed4cb38 | fed_speeches | Waller, The Data Version of Godzilla versus Kong: FRED Takes on AI -- Speech At \"Navigating Trust, AI and Storytelling in a World of Data,\" FRED Con 2026, Federal Reserve Bank of St. Louis, St. Louis, Missouri\n6cc2068c3933 | fed_speeches | Cook, The Dual Mandate in Rural America -- Speech At the 2026 Investing in Rural America Conference, Federal Reserve Bank of Richmond, Asheville, North Carolina",
+ "response": {
+  "items": [
+   {
+    "id": "137e08876461",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "71f982550ad8",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "3139b31e580d",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "b325158c6afc",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "4cf866ec3119",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "ab68561bbfe1",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "a8e832ddbecb",
+    "score": -0.05,
+    "severity": 0,
+    "category": "iran",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "750cb4fc4eff",
+    "score": 0.1,
+    "severity": 1,
+    "category": "iran",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "478c4fa12c1c",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "ab0f4053fdb0",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "cdac9a19ed9b",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "4738e45887c8",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.2
+   },
+   {
+    "id": "c947052ed775",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "54f7f2ffdd76",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "90abd173649b",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "4c6a51185c8b",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "e78ede4c0154",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "eea0743f728f",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "917f45b4ff72",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "89d8d32cab1d",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "225e920a55c5",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "a59f7c441673",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "5261664c3801",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "a84b88355402",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "ce1353b97b2b",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "7aab64ef00b6",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "c37e09ba7938",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "e434ebd5dafa",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "ef8ebed4cb38",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "6cc2068c3933",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2116,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1024,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 79,
+   "engine_ttlt_ms": 12259,
+   "pre_inference_ms": 111,
+   "service_tbt_ms": 6,
+   "service_ttft_ms": 465,
+   "service_ttlt_ms": 12619,
+   "user_visible_ttft_ms": 354
+  },
+  "prompt_tokens": 2760,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2757,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4876,
+  "cost": 0.0013416188,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0013416188
+  }
+ },
+ "latency_s": 39.473,
+ "ts": 1792750928.3912182
+}

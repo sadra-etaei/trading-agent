@@ -1,0 +1,276 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "0db91fbb8e47 | binance | [Binance New Cryptocurrency Listing] Binance Will Add 4 bStocks Tokenized Securities as Collateral Asset - 2026-10-14 -- \nfcbf87da572f | binance | [Binance New Cryptocurrency Listing] Binance Exchange Adds Blackberry (BBB), Mongodb Inc (MDBB), Penguin Solutions Inc (PENGB) and ProShares Ultra VIX Short-Term Futures ETF (UVXYB) bStocks Trading Pairs on Binance Spot/Convert - 2026-10-14 -- \n870bca688d1d | binance | [Binance New Cryptocurrency Listing] Binance Will List RWUSD and Introduce RWUSD Zero Trading Fee Promotion -- \n310b54a7f5d6 | binance | [Binance New Cryptocurrency Listing] Binance Futures Will Launch Multiple TradFi USDⓈ-Margined Perpetual Contracts (2026-10-12) -- \n170cc4c16882 | binance | [Binance New Cryptocurrency Listing] Binance Will Add 4 bStocks Tokenized Securities as Collateral Asset - 2026-10-07 -- \n641ca8a95fe4 | binance | [Binance New Cryptocurrency Listing] Binance Exchange Adds JPMorgan Chase (JPMB), Eli Lilly (LLYB), Securitize Corp (SECZB) and StablecoinX Inc (USDEB) bStocks Trading Pairs on Binance Spot/Convert - 2026-10-07 -- \ne5326b9a0ab3 | binance | [Binance New Cryptocurrency Listing] Binance Futures Will Launch Multiple TradFi USDⓈ-Margined Perpetual Contracts (2026-10-06) -- \n349715e91c98 | binance | [Binance Latest Binance News] Binance Will Support the ASML Holding N.V. (ASML) and Nokia Corporation (NOK) Cash Dividend Distribution via bStocks -- \n594f10d7b3a6 | binance | [Binance Latest Binance News] Updates on Tick Size for Spot Trading Pairs (2026-10-29) -- \ncf15f2ecafd4 | binance | [Binance Latest Binance News] Important Updates on TradFi Perpetual Contracts (2026-10-21) -- \n40271fa58ee8 | binance | [Binance Latest Binance News] Binance Earn Yield Arena: Earn Up to 5,888 USDC With This Week’s New Limited-Time Offers! (2026-10-21) -- \nc475265ffd5c | binance | [Binance Latest Binance News] Updates on Tick Size for Multiple USDⓈ-M Perpetual Futures Contracts (2026-10-22) -- \n63161618fcc3 | binance | [Binance Latest Binance News] Binance Margin Will Initiate Routine Cleanup of Small-Balance Debt Accounts (2026-10-27) -- \n841c2a8f620b | binance | [Binance Latest Binance News] Update on the Collateral Ratio Under Cross Margin and Portfolio Margin (2026-10-23) -- \nd4672be69234 | binance | [Binance Latest Binance News] Update on the Margin Tiers of USDⓈ-M Perpetual Contracts (2026-10-30) -- \nd3fec8331aa0 | binance | [Binance Latest Binance News] Binance to Support 24/7 Dynamic Updates of the bStocks Collateral Index Price -- \n832dcaf9c18a | binance | [Binance Latest Binance News] Introducing Binance AI Pro -- \n723c7d2db90d | binance | [Binance Delisting] Binance Futures Will Delist PTBUSDT and MITOUSDT USDⓈ-M Perpetual Contracts (2026-10-23) -- \n258f889bb3a7 | binance | [Binance Delisting] Notice of Removal of Spot Trading Pairs - 2026-10-23 -- \n8482e21cf9b4 | binance | [Binance Delisting] Binance Will Delist EPIC, QUICK on 2026-10-28 -- \n96efe4f9c6b7 | binance | [Binance Delisting] Binance Alpha Will Remove SUP, CUDIS, PYTHIA, BLUM, KIN, DN, GAIA, STRIKE, CDL, KO, VRA, EPT, SLX (SLIMEX), CAI (2026-10-09) -- \n6d1f4edf1266 | binance | [Binance Delisting] Binance Futures Will Delist Multiple USDⓈ-M Perpetual Contracts (2026-10-05) -- \nf07ebfdd775f | binance | [Binance Delisting] Notice of Removal of Spot Trading Pairs - 2026-10-02 -- \n891845b5d8d6 | binance | [Binance Delisting] Binance Margin And Loans Token Delist on 2026-10-02 -- \n585d785036d3 | binance | [Binance Delisting] Binance Will Close UAH Deposits and Withdrawals via Fiat Trade UAH and Delist USDT/UAH Spot Trading Pair -- \n001f51835448 | binance | [Binance Delisting] Notice of Removal of Margin Trading Pairs - 2026-09-25 -- \n8b92a40bdf49 | binance | [Binance Delisting] Notice of Removal of Spot Trading Pairs - 2026-09-25 -- \nc6f102d8eedc | cointelegraph | Malaysia, Thailand join Singapore’s cross-border stablecoin push -- BLOOM seeks to cut costs by helping financial institutions coordinate cross-border use of stablecoins and tokenized deposits.\n8290b5bdc074 | cointelegraph | Bitcoin ETFs bleed $635M as October slides back into the red -- Thursday’s withdrawals ended a three-day inflow streak and left US spot Bitcoin ETFs with $175 million in net outflows for October.\n97e9f3fcf20d | cointelegraph | Here’s what happened in crypto today -- Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+ "response": {
+  "items": [
+   {
+    "id": "0db91fbb8e47",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "fcbf87da572f",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "870bca688d1d",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "310b54a7f5d6",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "170cc4c16882",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0
+   },
+   {
+    "id": "641ca8a95fe4",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "e5326b9a0ab3",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "349715e91c98",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "594f10d7b3a6",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "cf15f2ecafd4",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "40271fa58ee8",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "c475265ffd5c",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "63161618fcc3",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "841c2a8f620b",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d4672be69234",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "d3fec8331aa0",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "832dcaf9c18a",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "723c7d2db90d",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "258f889bb3a7",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "8482e21cf9b4",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "96efe4f9c6b7",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "6d1f4edf1266",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "f07ebfdd775f",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "891845b5d8d6",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "585d785036d3",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "001f51835448",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "c6f102d8eedc",
+    "score": 0.05,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "8290b5bdc074",
+    "score": -0.25,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.9
+   },
+   {
+    "id": "97e9f3fcf20d",
+    "score": 0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 1934,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 909,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 5,
+   "engine_ttft_ms": 86,
+   "engine_ttlt_ms": 10142,
+   "pre_inference_ms": 87,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 429,
+   "service_ttlt_ms": 10479,
+   "user_visible_ttft_ms": 342
+  },
+  "prompt_tokens": 1686,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 1683,
+   "cached_tokens": 0
+  },
+  "total_tokens": 3620,
+  "cost": 0.0010251963,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0010251963
+  }
+ },
+ "latency_s": 12.939,
+ "ts": 1792745521.8311772
+}

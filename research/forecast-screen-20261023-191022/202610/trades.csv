@@ -1,0 +1,2 @@
+symbol,entry_ts,entry_price,qty,spent,forecast_return_pct,forecast_net_pct,exit_ts,exit_price,pnl_usdt,return_pct,reason
+PEPEUSDT,2026-10-02 12:01:00+00:00,4.41012e-06,3729743.0,16.46999739761891,1.5253621019956023,0.8053621019956023,2026-10-02 16:03:00+00:00,4.399857e-06,-0.0809949874686886,-0.4917729220795029,four_hour_exit

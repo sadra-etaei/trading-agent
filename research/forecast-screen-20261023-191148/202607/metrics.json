@@ -1,0 +1,14 @@
+{
+  "start": "2026-07-01 00:00:00+00:00",
+  "end": "2026-08-01 00:00:00+00:00",
+  "return_usdt_pct": 5.533710178639684,
+  "trades": 5,
+  "profit_factor": 9.131855712381752,
+  "max_drawdown_pct": 4.322377293782099,
+  "unfinished": false,
+  "final_usdt": 19.312668962691063,
+  "forecast_mae_pct": 0.7395941136358,
+  "naive_zero_return_mae_pct": 0.7328182142627735,
+  "fit_end": "2026-06-30 19:00:00+00:00",
+  "train_rows": 46786
+}

@@ -1,0 +1,52 @@
+{
+ "model": "openai/gpt-6.1-sol",
+ "system": "You are the risk-overlay agent of an automated crypto trading bot: Wallex (Iranian exchange) USDT-quoted pairs, long-only spot. Idle cash is held in USDT and profit is measured in US dollars, so only global crypto prices matter (the rial does not).\nA calibrated ML model (price history, Binance order flow and premium are already in it) proposes long trades.\nJudge only what statistics cannot see: news and events, exchange or regulatory risk, abnormal market states.\n\nRules:\n- Default to approve. Do not second-guess the model on ordinary technical grounds.\n- veto only with one reason_code from: major_negative_news, market_shock, exchange_or_regulatory_risk, illiquid_or_stale_market, extreme_move_already_happened, and a concrete stated reason.\n- reduce (size_multiplier 0.25-0.75) when risk is elevated but not clearly negative.\n- risk_off=true only for market-wide shocks; it pauses all new entries for 4 hours.\n- For every approved or reduced trade, write `invalidation`: one sentence naming an observable condition\n  (news, event, Binance move) under which the trade idea is wrong and the position should be closed early.\n- `lessons` (if present) are hints from the bot's own past trades; they never override these rules.\nRespond with JSON only:\n{\"reviews\": [{\"symbol\": \"...\", \"action\": \"approve\"|\"reduce\"|\"veto\", \"size_multiplier\": 0.0-1.0,\n  \"reason_code\": \"<code or empty>\", \"invalidation\": \"<one sentence>\", \"confidence\": 0.0-1.0,\n  \"reasoning\": \"<= 2 sentences, concrete\"}], \"risk_off\": bool}",
+ "user": "{\"time_utc\": \"2026-10-22T19:03:00.661409+00:00\", \"candidates\": [{\"symbol\": \"XRPUSDT\", \"p_win\": 0.52, \"expected_value_pct\": 0.35, \"take_profit_pct\": 1.6, \"stop_loss_pct\": 1.1, \"regime\": \"trending\", \"ret_24h_pct\": 2.1, \"rsi\": 61.0, \"atr_pct\": 1.0}], \"portfolio\": {\"equity_usdt\": 18.33, \"open_positions\": {}}, \"market\": {\"btc_ret_24h_pct\": -0.8}, \"headlines\": [], \"lessons\": []}",
+ "response": {
+  "reviews": [
+   {
+    "symbol": "XRPUSDT",
+    "action": "approve",
+    "size_multiplier": 1.0,
+    "reason_code": "",
+    "invalidation": "Close early if confirmed adverse Ripple/XRP regulatory news emerges or Binance XRPUSDT falls 1.1% below the entry price.",
+    "confidence": 0.78,
+    "reasoning": "No adverse news, exchange disruption, or abnormal market event is reported in the supplied data. XRP's 2.1% daily gain and BTC's 0.8% decline do not establish an extreme move or market-wide shock."
+   }
+  ],
+  "risk_off": false
+ },
+ "usage": {
+  "completion_tokens": 124,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 0,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 19,
+   "engine_ttft_ms": 398,
+   "engine_ttlt_ms": 2762,
+   "pre_inference_ms": 101,
+   "service_tbt_ms": 19,
+   "service_ttft_ms": 967,
+   "service_ttlt_ms": 3321,
+   "user_visible_ttft_ms": 866
+  },
+  "prompt_tokens": 537,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 661,
+  "cost": 0.0026611,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0026611
+  }
+ },
+ "latency_s": 43.609,
+ "ts": 1792695824.2836819
+}

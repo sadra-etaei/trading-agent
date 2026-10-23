@@ -1,0 +1,67 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score news headlines for a short-term (hours to 3 days) crypto spot trading bot\non Wallex, an Iranian exchange where prices are quoted in Iranian Toman (TMN).\nTwo things move TMN crypto prices: global crypto prices, and the USDT/TMN rate (rial weakness\nraises every TMN price; rial strength lowers them). Headlines may be English or Persian.\n\nFor each headline return:\n- id (copy it)\n- score: -1.0 (very bearish for holding crypto in TMN) .. +1.0 (very bullish); 0 if irrelevant\n- category: one of global_crypto, regulation, hack_or_exchange, macro_global, iran_macro, iran_politics, other\n- assets: list of affected tickers (e.g. [\"BTC\"], [\"ALL\"] for market-wide, [] if none)\n- severity: 0 (noise) .. 3 (market-moving shock)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most headlines are noise (score near 0, severity 0).",
+ "user": "584539aae785: CryptoQuant CEO calls rising Bitcoin hashrate ‘indirect bullish signal’ from institutions\nde2ade90b18a: Thailand SEC says several companies eye crypto ETFs, none has applied\n0d0d8efbaa04: سیگنال صعودی برای ۳ ارز دیجیتال محبوب؛ کدام‌یک آماده جهش است؟",
+ "response": {
+  "items": [
+   {
+    "id": "584539aae785",
+    "score": 0.2,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "severity": 1
+   },
+   {
+    "id": "de2ade90b18a",
+    "score": 0.0,
+    "category": "regulation",
+    "assets": [
+     "ALL"
+    ],
+    "severity": 0
+   },
+   {
+    "id": "0d0d8efbaa04",
+    "score": 0.0,
+    "category": "other",
+    "assets": [],
+    "severity": 0
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 228,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 126,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 8,
+   "engine_ttft_ms": 185,
+   "engine_ttlt_ms": 1916,
+   "pre_inference_ms": 111,
+   "service_tbt_ms": 8,
+   "service_ttft_ms": 403,
+   "service_ttlt_ms": 2128,
+   "user_visible_ttft_ms": 292
+  },
+  "prompt_tokens": 305,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "total_tokens": 533,
+  "cost": 9.3725e-05,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 9.3725e-05
+  }
+ },
+ "latency_s": 3.872,
+ "ts": 1792677623.5836468
+}

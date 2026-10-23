@@ -1,0 +1,57 @@
+{
+  "candidate": "full_reference",
+  "month": "2026-09-01",
+  "end": "2026-10-01 00:00:00+00:00",
+  "threshold": 0.0,
+  "auc_raw": 0.6189181518648839,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 5423506.218576004,
+  "net_return_pct": 8.470124371520082,
+  "max_drawdown_pct": 7.404197021094017,
+  "trades": 46,
+  "trading_volume_tmn": 291367181.513363,
+  "avg_trade_volume_tmn": 3167034.5816669893,
+  "win_rate_pct": 52.17391304347826,
+  "avg_trade_ret_pct": 0.1586171561139515,
+  "profit_factor": 1.5379617370816963,
+  "fees_tmn": 878006.0814401376,
+  "avg_hold_hours": 1.978260869565217,
+  "exit_reasons": {
+    "take_profit": 20,
+    "binance_guard": 14,
+    "trailing_stop": 8,
+    "stop_loss": 4
+  },
+  "by_symbol": {
+    "ADATMN": {
+      "count": 6,
+      "sum": 124766.0
+    },
+    "AVAXTMN": {
+      "count": 4,
+      "sum": 54331.0
+    },
+    "LTCTMN": {
+      "count": 3,
+      "sum": -29909.0
+    },
+    "PEPETMN": {
+      "count": 1,
+      "sum": 4290.0
+    },
+    "SHIBTMN": {
+      "count": 7,
+      "sum": 20085.0
+    },
+    "SUITMN": {
+      "count": 11,
+      "sum": 47497.0
+    },
+    "UNITMN": {
+      "count": 14,
+      "sum": 202447.0
+    }
+  },
+  "sharpe_hourly_annualized": 3.7157467027188926,
+  "open_at_end": 0
+}

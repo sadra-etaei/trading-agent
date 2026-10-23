@@ -1,0 +1,314 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "559ac6f1f5fc | decrypt | Microsoft, Alphabet, Goldman Sachs Join Growing List of Companies Objecting to Tokenized Stocks -- Sixteen companies have now objected to having their shares traded on the planned OKX-ICE tokenized stock venue, up from nine just four days earlier, according to an updated public notice.\n1b8580bbf4a4 | decrypt | Swiss Regulator Approves First Retail Fund That Holds Bitcoin Directly -- FINMA waived the diversification rules for the fund but leaned hard on custody and investor-protection safeguards.\ne1931d13e87d | decrypt | Bitcoin ETFs Post Their Best Day in Nearly a Month as BlackRock Does All the Buying -- U.S. spot Bitcoin ETFs took in $526.7 million on Monday, their biggest day since Sept. 22. BlackRock's IBIT supplied all of it while Fidelity and Grayscale funds bled.\n335a560a497e | decrypt | Bitcoin's Next Move: Here's What to Watch -- Bitcoin trades just below $83,000, above both the short-term and long-term moving averages. Here are the levels traders are watching.\n922db766b952 | decrypt | Zcash Leads Crypto Bounce, Surging 8.5% as Bitcoin Reclaims $83,000 -- Zcash jumped 8.5% in 24 hours to $1,215.85 as the broader crypto market rebounded, with Bitcoin up 1.6% and ETF money flowing back in.\nc487e551edde | decrypt | The Midterms Are the First Real Test of Whether Markets Beat Pollsters -- Former NBC News political director Chuck Todd is hosting NEXTPredict two weeks before the vote, and has yet to pick a side.\n369deefb8654 | decrypt | What Is Strategy (MSTR)? The Bitcoin Treasury Company -- Strategy’s co-founder Michael Saylor pioneered the Bitcoin treasury playbook. Here’s what you need to know.\nd25fca4cace9 | theblock | JPMorgan says crypto regulatory moves partly offset Clarity Act failure, but risks remain -- JPMorgan said actions by U.S. regulators partly offset the Clarity Act setback, but longer-lasting rules are still needed.\n371e7da5bd58 | theblock | Blockchain Association pushes for crypto tax clarity as broader bill stalls -- As progress stalls on a crypto bill, the Blockchain Association is urging Congress to pass legislation to resolve uncertainty around taxes.\nb3372e70fb63 | theblock | Coinbase Ireland fined $3.6 million over customer fund segregation, oversight failures -- Coinbase Ireland fined $3.6 million for safeguarding breaches that left customer funds underfunded and mixed with group accounts.\n3d95bf0d9a1b | theblock | Uniswap’s aggregator hooks go live on Ethereum, Base and Robinhood Chain -- Uniswap Labs has launched aggregator hooks, allowing Uniswap v4 to route trades through liquidity held on external platforms.\n538f5719eb13 | theblock | Fireblocks denies report of $2.5 billion acquisition talks with Visa -- Fireblocks denied an Axios report that Visa is in talks to acquire the crypto custody firm for around $2.5 billion.\n1c75dc702e1f | theblock | Dune launches onchain trading data feeds as tokenized markets expand -- The new real-time market feeds will cover trade data from over 200 onchain venues across 12 blockchain networks.\na83928692d84 | theblock | SoFi launches interest-bearing, FDIC-insured tokenized deposit for crypto users -- SoFi has launched SOFIE, a tokenized deposit offering 4.4% APY and FDIC insurance, with the option to convert to SoFiUSD.\ne4292fdd6ffe | theblock | Bitcoin ETFs draw $528 million as ether funds snap five-day outflow streak -- Spot bitcoin ETFs attracted $528 million on Wednesday as BlackRock and Fidelity led a recovery in institutional demand.\n37e44643e8ac | theblock | Starknet community overwhelmingly backs research into becoming an independent post-quantum Layer 1 -- Starknet's community backed research into becoming an independent post-quantum Layer 1, with a draft whitepaper expected in November.\nb9e50c627625 | theblock | Layer 2 Scaling Solutions -- Layer 2 scaling solutions help blockchains like Ethereum process more activity without forcing every transaction to happen directly on the base chain. Ethereum’s main network is secure and decentralized, but blockspace is limited. When demand rises, fees increase and users can get priced out. Layer \n4613b7bdde41 | theblock | South Korea’s crypto bill nears completion while tax debate intensifies: reports -- The bill seeks to establish a framework for digital assets, including licensing regimes for exchanges and rules for stablecoin issuance.\n556f3b2bc139 | theblock | Aerodrome and Velodrome merge to launch Aero across seven blockchain networks -- Aerodrome and Velodrome have merged to launch Aero across Ethereum mainnet, Base, Robinhood Chain, Ink, OP Mainnet, Arc, and Arbitrum.\nff90e9563246 | theblock | Robinhood single-stock perps could be a ‘strong positive’ for HOOD shares, Mizuho says -- A Mizuho survey of 600+ Robinhood users finds 94% would trade single-stock perpetual futures, mostly with new money.\n45ab6107592a | theblock | American Bankers Association accuses OCC of undermining Congress with final stablecoin rewards rule -- The fight between banks and crypto has reignited after a top banking regulator declined to weigh in on third-party stablecoin rewards.\nde38c87a060e | theblock | Dataline raises $10.6 million for decentralized data network for AI agents, plans ICO -- The startup also plans to hold a public token sale through Uniswap's auction platform, with details expected next week.\n3cc17533b44c | theblock | Grayscale expands in-kind subscriptions to 10 crypto ETFs and trusts -- Grayscale expands in-kind subscriptions to 10 crypto funds, letting eligible investors swap tokens for shares without selling for cash.\n2a87b327463c | theblock | Anza’s Alpenglow goes live on Solana, cutting finality to 150 milliseconds -- Solana activated Alpenglow, replacing TowerBFT and cutting transaction finality from 12.8 seconds to about 150 milliseconds.\n66cc3ceb9ce3 | theblock | Standard Chartered signs definitive agreements to acquire Zodia Custody -- Standard Chartered has signed definitive agreements to acquire Zodia Custody, subject to regulatory approval.\n26c6e8afb0da | theblock | Dogecoin Labs launches as DOGE ecosystem seeks growth beyond meme-driven demand -- Dogecoin Labs, backed by the Dogecoin Foundation, unites MyDoge, DogeOS and Such App to push DOGE into payments and DeFi.\n3a020b110de5 | arzdigital | روز ۲۱ ماه برای بیت کوین نحس است؟ تحلیلگر معروف از الگویی عجیب خبر داد -- بیت کوین بار دیگر در عبور از مقاومت‌های مهم ناکام ماند و با افزایش فشار فروش، به محدوده ۸۲ هزار دلار عقب‌نشینی کرد. این کاهش قیمت با لیکویید شدن میلیون‌ها دلار از معاملات اهرمی همراه شد و بار دیگر نگرانی‌ها درباره ادامه روند نزولی بازار را افزایش داد. اما در میان این نوسانات، بنجامین کوئن […] The po\n5852ecbd7fb8 | arzdigital | سیگنال صعودی برای ۳ ارز دیجیتال محبوب؛ کدام‌یک آماده جهش است؟ -- بازار ارز دیجیتال پس از تجربه یک جهش کوتاه‌مدت، بار دیگر با فشار فروشندگان روبه‌رو شد و وارد فاز اصلاحی گردید. در پی این عقب‌نشینی ناگهانی، دارایی‌های شاخصی نظیر بیت کوین، هایپرلیکویید و زی‌کش نتوانستند از موج سرخ بازار در امان بمانند و همگی دچار افت قیمت شدند.با این حال، برخی تحلیلگران معتقدند سیگن\n01a48839bae9 | arzdigital | ۵ دلیل ترند شدن سرمایه‌گذاری در نقره در سال ۲۰۲۶ -- تورم مداوم، تنش‌های ژئوپلیتیکی و نگرانی درباره کاهش ارزش پول، توجه سرمایه‌گذاران را بار دیگر به نقره جلب کرده است. اگرچه قیمت نقره از رکوردهای تاریخی خود در ماه‌های گذشته فاصله گرفته، اما این فلز همچنان یکی از گزینه‌های مورد توجه سرمایه‌گذاران است. افزایش تقاضای صنعتی، محدودیت عرضه و احتمال بازدهی ب\n81368934147c | arzdigital | چرا تام لی به اتریوم ۶۲ هزار دلاری باور دارد؟ -- پیش‌بینی‌های هیجان‌انگیز درباره سقف‌های تاریخی جدید اتریوم دوباره بازار ارز دیجیتال را به هیجان آورده است. در شرایطی که بسیاری از معامله‌گران در انتظار عبور اتریوم از مرز ۱۰ هزار دلار هستند، تام لی، رئیس هیئت‌مدیره بیت‌ماین، افق بسیار بلندپروازانه‌تری ترسیم کرده و معتقد است اتریوم در این چرخه صعودی ",
+ "response": {
+  "items": [
+   {
+    "id": "559ac6f1f5fc",
+    "score": -0.03,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "1b8580bbf4a4",
+    "score": 0.12,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "e1931d13e87d",
+    "score": 0.18,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "335a560a497e",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC"
+    ],
+    "novelty": 0.0
+   },
+   {
+    "id": "922db766b952",
+    "score": 0.04,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "c487e551edde",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.0
+   },
+   {
+    "id": "369deefb8654",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.0
+   },
+   {
+    "id": "d25fca4cace9",
+    "score": -0.04,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "371e7da5bd58",
+    "score": -0.03,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "b3372e70fb63",
+    "score": -0.02,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "3d95bf0d9a1b",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "538f5719eb13",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "1c75dc702e1f",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "a83928692d84",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "e4292fdd6ffe",
+    "score": 0.17,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ETH"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "37e44643e8ac",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "b9e50c627625",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.0
+   },
+   {
+    "id": "4613b7bdde41",
+    "score": 0.06,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "556f3b2bc139",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.4
+   },
+   {
+    "id": "ff90e9563246",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "45ab6107592a",
+    "score": -0.02,
+    "severity": 0,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "de38c87a060e",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "3cc17533b44c",
+    "score": 0.04,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "BTC",
+     "ETH"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "2a87b327463c",
+    "score": 0.14,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "SOL"
+    ],
+    "novelty": 0.8
+   },
+   {
+    "id": "66cc3ceb9ce3",
+    "score": 0.02,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.6
+   },
+   {
+    "id": "26c6e8afb0da",
+    "score": 0.0,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [],
+    "novelty": 0.5
+   },
+   {
+    "id": "3a020b110de5",
+    "score": -0.1,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "5852ecbd7fb8",
+    "score": -0.08,
+    "severity": 1,
+    "category": "global_crypto",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.1
+   },
+   {
+    "id": "01a48839bae9",
+    "score": 0.0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.0
+   },
+   {
+    "id": "81368934147c",
+    "score": 0.01,
+    "severity": 0,
+    "category": "global_crypto",
+    "assets": [
+     "ETH"
+    ],
+    "novelty": 0.2
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 2426,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 1285,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 5,
+   "engine_ttft_ms": 79,
+   "engine_ttlt_ms": 13161,
+   "pre_inference_ms": 111,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 639,
+   "service_ttlt_ms": 13715,
+   "user_visible_ttft_ms": 528
+  },
+  "prompt_tokens": 2294,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 2291,
+   "cached_tokens": 0
+  },
+  "total_tokens": 4720,
+  "cost": 0.0012492163,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0012492163
+  }
+ },
+ "latency_s": 16.216,
+ "ts": 1792709250.7959342
+}

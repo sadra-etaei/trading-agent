@@ -1,0 +1,292 @@
+{
+ "model": "openai/gpt-6-luna",
+ "system": "You score market-moving items for a crypto spot trading bot. The bot holds USDT when idle and buys\ncoins against USDT (BTC, ETH, XRP, SOL, PEPE, BNB, XAUT); profit is measured in US dollars.\nItems come from Donald Trump's Truth Social posts, Federal Reserve releases, Binance announcements, crypto news\nand world news, in English or Persian.\n\nFor each item return:\n- id (copy it)\n- score: -1.0 (very bearish for crypto prices in USD over the next hours) .. +1.0 (very bullish); 0 if irrelevant\n- severity: 0 (noise) .. 3 (market-moving shock, e.g. new tariffs on China, war escalation, exchange hack)\n- category: one of tariff_trade, geopolitics, fed_monetary, us_macro, crypto_policy, hack_exchange,\n  listing_delisting, global_crypto, iran, other\n- assets: affected tickers (e.g. [\"BTC\"]), [\"ALL\"] for market-wide, [] if none\n- novelty: 0 (repeat or already-known news) .. 1 (genuinely new information)\nRespond as JSON: {\"items\": [ ... ]}. Be calibrated: most items are noise (score near 0, severity 0).\nThe bot currently trades TOMAN-quoted pairs and holds Toman when idle: besides global crypto prices, the USDT/TMN\nrate moves every price (rial weakness raises Toman prices, rial strength or a USDT/TMN drop lowers them).\nScore the effect on crypto prices IN TOMAN; Iranian economic and political news belongs in category iran.",
+ "user": "a85bf284bfec | fed_speeches | Waller, Payments in the Age of AI Agents -- Speech At Sibos 2026, Miami, Florida\n2b90f0b20001 | fed_speeches | Barr, Economic Conditions and Monetary Policy -- Speech At the Detroit Economic Club, Detroit, Michigan\n4db97dbd8307 | fed_speeches | Bowman, Opening Remarks -- Speech At the Community Bank Cyber Workshop, Denver, Colorado (via pre-recorded video)\nbc52302f0fab | fed_speeches | Cook, An Update on AI and the Economy -- Speech At the Oakland Tech Week Opening Keynote, cohosted by the Kapor Center, Oakland, California\n31ada14fa1bf | fed_speeches | Barr, A Long-Term View on the Costs of Shelter -- Speech At “Housing Affordability 2026: A Community Development Summit,” hosted by the Federal Reserve Bank of Chicago, Chicago, Illinois\n8db9c17e4817 | fed_speeches | Jefferson, Discount Window Modernization and Treasury Market Functioning -- Speech At the 2026 U.S. Treasury Market Conference, Federal Reserve Bank of New York, New York, New York\n73054f1345c1 | fed_speeches | Bowman, Initial Findings from Independent Review of Silicon Valley Bank -- Speech At the Luncheon of the Lord Mayor City of London at Mansion House, London, United Kingdom\nb058e4e0592a | fed_speeches | Bowman, The Final Chapter on Modernizing Bank Regulatory Stress Testing -- Speech At the Luncheon of the Lord Mayor City of London at Mansion House, London, United Kingdom\ndd24270c08d0 | fed_all | Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank -- Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank\nbd81ad89d37d | fed_all | Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families -- Federal Reserve Board releases results of the 2025 Survey of Consumer Finances, which provides the public and policymakers with detailed insights into the economic condition of American families\nf9be48159b73 | fed_all | Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering -- Federal Reserve Board announces enforcement action against American Express Company to address, among other things, the firm’s failure to sufficiently detect and report certain suspicious activity related to money laundering\n691b7d9306eb | fed_all | Minutes of the Federal Open Market Committee, September 15-16, 2026 -- Minutes of the Federal Open Market Committee, September 15-16, 2026\n0868615c1981 | fed_all | Federal Reserve Board announces approval of application by Isabella Bank Corporation -- Federal Reserve Board announces approval of application by Isabella Bank Corporation\n6fe53917880c | fed_all | Federal Reserve Board announces approval of application by Fleur Capital Corporation -- Federal Reserve Board announces approval of application by Fleur Capital Corporation\nb80854423910 | fed_all | Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O -- Federal Reserve Board announces it will extend, until November 4, the comment period on its proposal to modernize Regulation O\n0f45ad917660 | fed_all | Federal Reserve Board issues enforcement action with Ontario Bancorporation, Inc. -- Federal Reserve Board issues enforcement action with Ontario Bancorporation, Inc.\necadddf998ab | fed_all | Federal Reserve Board finalizes changes to enhance the transparency and public accountability of its stress test and reduce volatility in its stress test-related capital requirements -- Federal Reserve Board finalizes changes to enhance the transparency and public accountability of its stress test and reduce volatility in its stress test-related capital requirements\n71953935ee48 | fed_all | Agencies publish resolution plan feedback letters for 15 banking organizations -- Agencies publish resolution plan feedback letters for 15 banking organizations\n597ad4607537 | fed_all | Federal Reserve Board announces approval of application by Peoples Bancorp Inc. -- Federal Reserve Board announces approval of application by Peoples Bancorp Inc.\n68d75f7b7427 | fed_all | Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act -- Federal Reserve Board requests public comment on two proposals related to establishing a regulatory framework for Board-supervised payment stablecoin issuers under the GENIUS Act\n155474526f71 | fed_all | Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank -- Federal Reserve Board issues enforcement action with former employee of Sandy Spring Bank\ne863fa6f0bb2 | fed_all | Federal Reserve Board announces approval of application by BancFirst Corporation -- Federal Reserve Board announces approval of application by BancFirst Corporation\n698686cb8991 | fed_all | Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula -- Federal Reserve Board announces termination of enforcement action with SNB Bancshares and Bank of Eufaula\n38a7ab5a4c2a | fed_all | Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank -- Federal Reserve Board issues enforcement actions with former employee of Northstar Bank, former employee of American Express Travel Related Services Company, Inc., and former employee of Regions Bank\n9fdea3735c9b | fed_all | Federal Reserve issues FOMC statement -- Federal Reserve issues FOMC statement\nedd8cfeea8c4 | fed_all | Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting -- Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting\n663372303674 | fed_all | Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers -- Agencies seek comment on proposed third-party risk management guidance and issue statement on community bank engagement with core service providers\nc81ef7fae979 | binance | [Binance New Cryptocurrency Listing] Binance Will Add 5 bStocks Tokenized Securities as Collateral Asset - 2026-10-21 -- \nf15b05a83859 | binance | [Binance New Cryptocurrency Listing] Binance Exchange Adds RoboStrategy Inc (BOTB), Berkshire Hathaway (BRKBB), KraneShares STAR Market 50 ETF (KSTRB), Direxion Daily 20 Year Treasury Bull 3X ETF (TMFB) and Vistra Corp (VSTB) bStocks Trading Pairs on Binance Spot/Convert - 2026-10-21 -- \nf09450169a5a | binance | [Binance New Cryptocurrency Listing] Binance Futures Will Launch Multiple TradFi USDⓈ-Margined Perpetual Contracts (2026-10-21) -- ",
+ "response": {
+  "items": [
+   {
+    "id": "a85bf284bfec",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "2b90f0b20001",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "4db97dbd8307",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "bc52302f0fab",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "31ada14fa1bf",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "8db9c17e4817",
+    "score": 0,
+    "severity": 0,
+    "category": "fed_monetary",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "73054f1345c1",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "b058e4e0592a",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "dd24270c08d0",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "bd81ad89d37d",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.3
+   },
+   {
+    "id": "f9be48159b73",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "691b7d9306eb",
+    "score": 0,
+    "severity": 1,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.6
+   },
+   {
+    "id": "0868615c1981",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "6fe53917880c",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "b80854423910",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "0f45ad917660",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "ecadddf998ab",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "71953935ee48",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "597ad4607537",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "68d75f7b7427",
+    "score": 0.05,
+    "severity": 1,
+    "category": "crypto_policy",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.5
+   },
+   {
+    "id": "155474526f71",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "e863fa6f0bb2",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "698686cb8991",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "38a7ab5a4c2a",
+    "score": 0,
+    "severity": 0,
+    "category": "other",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "9fdea3735c9b",
+    "score": 0,
+    "severity": 2,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "edd8cfeea8c4",
+    "score": 0,
+    "severity": 2,
+    "category": "fed_monetary",
+    "assets": [
+     "ALL"
+    ],
+    "novelty": 0.7
+   },
+   {
+    "id": "663372303674",
+    "score": 0,
+    "severity": 0,
+    "category": "us_macro",
+    "assets": [],
+    "novelty": 0.1
+   },
+   {
+    "id": "c81ef7fae979",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   },
+   {
+    "id": "f15b05a83859",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.3
+   },
+   {
+    "id": "f09450169a5a",
+    "score": 0,
+    "severity": 0,
+    "category": "listing_delisting",
+    "assets": [],
+    "novelty": 0.2
+   }
+  ]
+ },
+ "usage": {
+  "completion_tokens": 1868,
+  "completion_tokens_details": {
+   "accepted_prediction_tokens": 0,
+   "audio_tokens": 0,
+   "reasoning_tokens": 824,
+   "rejected_prediction_tokens": 0
+  },
+  "latency_checkpoint": {
+   "engine_tbt_ms": 6,
+   "engine_ttft_ms": 236,
+   "engine_ttlt_ms": 10534,
+   "pre_inference_ms": 102,
+   "service_tbt_ms": 5,
+   "service_ttft_ms": 645,
+   "service_ttlt_ms": 10892,
+   "user_visible_ttft_ms": 543
+  },
+  "prompt_tokens": 1844,
+  "prompt_tokens_details": {
+   "audio_tokens": 0,
+   "cache_write_tokens": 1841,
+   "cached_tokens": 0
+  },
+  "total_tokens": 3712,
+  "cost": 0.0010770038,
+  "is_byok": false,
+  "cost_details": {
+   "upstream_inference_cost": 0.0010770038
+  }
+ },
+ "latency_s": 13.208,
+ "ts": 1792745508.8817523
+}

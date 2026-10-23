@@ -1,0 +1,44 @@
+{
+  "candidate": "full_reference",
+  "month": "2026-08-01",
+  "end": "2026-09-01 00:00:00+00:00",
+  "threshold": 0.0,
+  "auc_raw": 0.662127705434254,
+  "initial_tmn": 5000000.0,
+  "final_tmn": 5267173.5736601,
+  "net_return_pct": 5.3434714732019994,
+  "max_drawdown_pct": 4.125506898968823,
+  "trades": 15,
+  "trading_volume_tmn": 111231527.68984163,
+  "avg_trade_volume_tmn": 3707717.5896613877,
+  "win_rate_pct": 46.666666666666664,
+  "avg_trade_ret_pct": 0.3424565007674315,
+  "profit_factor": 1.6698282404183022,
+  "fees_tmn": 335502.6116253812,
+  "avg_hold_hours": 1.5155555555555555,
+  "exit_reasons": {
+    "binance_guard": 7,
+    "take_profit": 5,
+    "stop_loss": 3
+  },
+  "by_symbol": {
+    "ADATMN": {
+      "count": 6,
+      "sum": 181425.0
+    },
+    "SHIBTMN": {
+      "count": 3,
+      "sum": -46301.0
+    },
+    "SUITMN": {
+      "count": 2,
+      "sum": 69736.0
+    },
+    "UNITMN": {
+      "count": 4,
+      "sum": 62314.0
+    }
+  },
+  "sharpe_hourly_annualized": 2.962530815322602,
+  "open_at_end": 0
+}
